@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class OpenBoxScript : MonoBehaviour
 {
-    public Animator boxOB;
-    public GameObject keyOBNeeded;
-    public GameObject openText;
-    public GameObject keyMissingText;
-    public AudioSource openSound;
+    public Animator boxOB; // Box Animator
+    public GameObject keyOBNeeded; // The key required to open the box
+    public GameObject keyInsideBox; // The key inside the box (door key)
+    public GameObject openText; // UI text: "Press to Open"
+    public GameObject keyMissingText; // UI text: "You need a key!"
+    public AudioSource openSound; // Sound effect when opening the box
 
-    public bool inReach;
-    public bool isOpen;
-
-
+    private bool inReach; // Player is in range
+    private bool isOpen; // Box has been opened
+    private Collider keyInsideBoxCollider; // Reference to door key's collider
 
     void Start()
     {
         inReach = false;
         openText.SetActive(false);
         keyMissingText.SetActive(false);
-    }
+        isOpen = false;
 
+        // Get the door key's collider and disable it at the start
+        if (keyInsideBox != null)
+        {
+            keyInsideBoxCollider = keyInsideBox.GetComponent<Collider>();
+            if (keyInsideBoxCollider != null)
+            {
+                keyInsideBoxCollider.enabled = false; // Prevent picking up the door key early
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -29,7 +39,6 @@ public class OpenBoxScript : MonoBehaviour
         {
             inReach = true;
             openText.SetActive(true);
-
         }
     }
 
@@ -43,29 +52,40 @@ public class OpenBoxScript : MonoBehaviour
         }
     }
 
-
     void Update()
     {
-        if (keyOBNeeded.activeInHierarchy == true && inReach && Input.GetButtonDown("Interact"))
-        {
-            keyOBNeeded.SetActive(false);
-            openSound.Play();
-            boxOB.SetBool("open", true);
-            openText.SetActive(false);
-            keyMissingText.SetActive(false);
-            isOpen = true;
-        }
+        if (isOpen) return; // If already opened, no further action needed
 
-        else if (keyOBNeeded.activeInHierarchy == false && inReach && Input.GetButtonDown("Interact"))
+        if (keyOBNeeded.activeInHierarchy && inReach && Input.GetButtonDown("Interact"))
         {
+            // Unlock and open the box
+            keyOBNeeded.SetActive(false); // The player uses the key to unlock the box
+            OpenBox();
+        }
+        else if (!keyOBNeeded.activeInHierarchy && inReach && Input.GetButtonDown("Interact"))
+        {
+            // If the player doesn't have the key, show the "Key Missing" message
             openText.SetActive(false);
             keyMissingText.SetActive(true);
         }
+    }
 
-        if(isOpen)
+    void OpenBox()
+    {
+        openSound.Play();
+        boxOB.SetBool("open", true);
+        openText.SetActive(false);
+        keyMissingText.SetActive(false);
+        isOpen = true;
+
+        // Enable the door key's collider so the player can pick it up
+        if (keyInsideBoxCollider != null)
         {
-            boxOB.GetComponent<BoxCollider>().enabled = false;
-            boxOB.GetComponent<OpenBoxScript>().enabled = false;
+            keyInsideBoxCollider.enabled = true;
         }
+
+        // Disable box interactions after opening
+        boxOB.GetComponent<BoxCollider>().enabled = false;
+        this.enabled = false;
     }
 }

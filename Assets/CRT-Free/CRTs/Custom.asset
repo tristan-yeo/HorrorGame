@@ -28,18 +28,18 @@ MonoBehaviour:
       width: 0
       height: 0
     monitorOutterSize:
-      width: 0.1
-      height: 0.145
-    zoom: 1.25
+      width: 0.148
+      height: 0.5
+    zoom: 1.34
     monitorRoundness: 0.2
     monitorTexture: {fileID: 0}
     monitorColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     innerMonitorDarkness: 0.6
     innerMonitorShine: 0.1
     colorScans:
-      greenChannelMultiplier: 0.1
+      greenChannelMultiplier: 0.5
       redBlueChannelMultiplier: 0.15
-      sizeMultiplier: 2
+      sizeMultiplier: 1.68
     innerMonitorShineRadius: -0.087
     innerMonitorShineCurve: 10
-  validationId: a66f0f09-e599-4266-89ad-9d50b0df1d3d
+  validationId: c2a7beb1-f0e6-4b94-9193-2c6269b66bbf

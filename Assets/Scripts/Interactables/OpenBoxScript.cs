@@ -11,6 +11,9 @@ public class OpenBoxScript : MonoBehaviour
     public GameObject keyMissingText; // UI text: "You need a key!"
     public AudioSource openSound; // Sound effect when opening the box
 
+    // NEW: Reference to ToggleCRT so we know if the CRT camera is on.
+    public ToggleCRT toggleCRT;
+
     private bool inReach; // Player is in range
     private bool isOpen; // Box has been opened
     private Collider keyInsideBoxCollider; // Reference to door key's collider
@@ -54,6 +57,13 @@ public class OpenBoxScript : MonoBehaviour
 
     void Update()
     {
+        // NEW: If the CRT camera is off, ensure no UI text is visible.
+        if (toggleCRT != null && !toggleCRT.IsCameraOn())
+        {
+            openText.SetActive(false);
+            keyMissingText.SetActive(false);
+        }
+
         if (isOpen) return; // If already opened, no further action needed
 
         if (keyOBNeeded.activeInHierarchy && inReach && Input.GetButtonDown("Interact"))

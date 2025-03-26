@@ -7193,6 +7193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6078590730583828357}
+  - component: {fileID: 5325706721752303000}
   m_Layer: 0
   m_Name: TallCabinet
   m_TagString: Untagged
@@ -7222,6 +7223,27 @@ Transform:
   - {fileID: 1156834507665588342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5325706721752303000
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8019841619597363251}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 98.89821, y: 210.61388, z: 50.419582}
+  m_Center: {x: -31.30793, y: 104.8069, z: 1.0150845}
 --- !u!1 &8090407627435869293
 GameObject:
   m_ObjectHideFlags: 0

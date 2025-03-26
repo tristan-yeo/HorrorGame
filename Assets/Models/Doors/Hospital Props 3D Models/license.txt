@@ -1,0 +1,11 @@
+Model Information:
+* title:	Hospital Door
+* source:	https://sketchfab.com/3d-models/hospital-door-95d27705b971422491c01eb72b43e940
+* author:	4dimension (https://sketchfab.com/4dimension)
+
+Model License:
+* license type:	CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
+* requirements:	Author must be credited. Modified versions must have the same license. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Hospital Door" (https://sketchfab.com/3d-models/hospital-door-95d27705b971422491c01eb72b43e940) by 4dimension (https://sketchfab.com/4dimension) licensed under CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)

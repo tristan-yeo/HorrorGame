@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: 19368ed90aca0474eb678067f92463fd
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 1
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 0
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 0
+  _texturesReadWriteEnabled: 1
+  _generateMipMaps: 1
+  _useSceneNameIdentifier: 1
+  _textureCompression: -50
+  _gltfAsset: '<b>Generator: </b>Sketchfab-12.68.0
+
+    <b>Version: </b>2.0
+
+
+    <b>Extras:
+    </b>
+
+    "author": "SeverDoes3D (https://sketchfab.com/SeverDoes3D)"
+
+    "license":
+    "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)"
+
+    "source": "https://sketchfab.com/3d-models/autopsy-lab-assets-5ceaaa4482a84774b9922366cfb228e7"
+
+    "title":
+    "Autopsy Lab - Assets"
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  textures:
+  - {fileID: 2800000, guid: bb8553d6d977144fa8c750b40a656f19, type: 3}
+  - {fileID: 2800000, guid: 0e5212e014dc74c0c8c914e73fd88a0d, type: 3}
+  - {fileID: 2800000, guid: f968adc01e4794446aa2774305a552c7, type: 3}
+  - {fileID: 2800000, guid: 4559f330cdd124a2eb28d3520cf58dca, type: 3}
+  - {fileID: 2800000, guid: 757f3aa1c1a1948758c470a9e49327f4, type: 3}
+  - {fileID: 2800000, guid: ef2e8447702d74d7f9e48d3899bef4b3, type: 3}
+  - {fileID: 2800000, guid: d359d5ae8a69c451789efaaade206319, type: 3}
+  - {fileID: 2800000, guid: d293de213489f417ba4880f08f93369a, type: 3}
+  - {fileID: 2800000, guid: c5ecd898131bc4c4493ab33e258a03ac, type: 3}
+  - {fileID: 2800000, guid: ce522c1b1d48e4011a31980bc32f0712, type: 3}
+  - {fileID: 2800000, guid: 7992a787a1cca4be7bd73618c899c304, type: 3}
+  - {fileID: 2800000, guid: 42d0ee4119b02481d9fdc18d53c93f56, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 0
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations: []
+  _extensions: []
+  _textures:
+  - texture: {fileID: 2800000, guid: bb8553d6d977144fa8c750b40a656f19, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 0e5212e014dc74c0c8c914e73fd88a0d, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: f968adc01e4794446aa2774305a552c7, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: 4559f330cdd124a2eb28d3520cf58dca, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 757f3aa1c1a1948758c470a9e49327f4, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: ef2e8447702d74d7f9e48d3899bef4b3, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: d359d5ae8a69c451789efaaade206319, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: d293de213489f417ba4880f08f93369a, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: c5ecd898131bc4c4493ab33e258a03ac, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: ce522c1b1d48e4011a31980bc32f0712, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 7992a787a1cca4be7bd73618c899c304, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 42d0ee4119b02481d9fdc18d53c93f56, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  _mainAssetIdentifier: scenes/Sketchfab_Scene
+  _importPlugins: []

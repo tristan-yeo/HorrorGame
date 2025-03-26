@@ -1,0 +1,81 @@
+fileFormatVersion: 2
+guid: f41c47ba1bdab4f11827bd624db0d8ad
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 1
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 0
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 0
+  _texturesReadWriteEnabled: 1
+  _generateMipMaps: 1
+  _useSceneNameIdentifier: 1
+  _textureCompression: -50
+  _gltfAsset: '<b>Generator: </b>Sketchfab-16.31.0
+
+    <b>Version: </b>2.0
+
+
+    <b>Extras:
+    </b>
+
+    "author": "Stefan_dot_obj (https://sketchfab.com/stefanprops)"
+
+    "license":
+    "CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)"
+
+    "source":
+    "https://sketchfab.com/3d-models/dirty-hospital-bench-1-b907080aff6a4bc2af4e906ca3ea44ea"
+
+    "title":
+    "Dirty Hospital Bench 1"
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {instanceID: 0}
+  textures:
+  - {fileID: 2800000, guid: f23bd54e3d9794c2cbdba735c6469730, type: 3}
+  - {fileID: 2800000, guid: c7dcd1fb456124dc981f5e45d7260649, type: 3}
+  - {fileID: 2800000, guid: c3ce7fa27721147fc939a9b9b53f5ab7, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 0
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations: []
+  _extensions: []
+  _textures:
+  - texture: {fileID: 2800000, guid: f23bd54e3d9794c2cbdba735c6469730, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: c7dcd1fb456124dc981f5e45d7260649, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: c3ce7fa27721147fc939a9b9b53f5ab7, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  _mainAssetIdentifier: scenes/Sketchfab_Scene
+  _importPlugins: []

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Secretary Desk - 20MB
+* source:	https://sketchfab.com/3d-models/secretary-desk-20mb-37151a4623c24fc498593f56ec0cbb34
+* author:	Mehdi Shahsavan (https://sketchfab.com/ahmagh2e)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Secretary Desk - 20MB" (https://sketchfab.com/3d-models/secretary-desk-20mb-37151a4623c24fc498593f56ec0cbb34) by Mehdi Shahsavan (https://sketchfab.com/ahmagh2e) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

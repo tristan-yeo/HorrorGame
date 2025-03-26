@@ -1,0 +1,11 @@
+Model Information:
+* title:	Office Drawer
+* source:	https://sketchfab.com/3d-models/office-drawer-48dae122a1694609886c84ae17a15d01
+* author:	Mkky (https://sketchfab.com/mkky)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Office Drawer" (https://sketchfab.com/3d-models/office-drawer-48dae122a1694609886c84ae17a15d01) by Mkky (https://sketchfab.com/mkky) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

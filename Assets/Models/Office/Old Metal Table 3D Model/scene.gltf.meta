@@ -2,7 +2,22 @@ fileFormatVersion: 2
 guid: 25ddfd1a288f445abbedd2be95c3237d
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_baseColor
+    second: {fileID: 2800000, guid: 3710c9ef1cb3148c3a6dac515050d0d5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_metallicRoughness
+    second: {fileID: 2800000, guid: eb89ff587236040c1a2089f8e329cedc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: DefaultMaterial_normal
+    second: {fileID: 2800000, guid: d8090bd7e0b2a4719b7135b9ff5c7b9f, type: 3}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -38,6 +53,7 @@ ScriptedImporter:
 
     <b>Version: </b>2.0
 
+    
 
     <b>Extras:
     </b>
@@ -55,7 +71,7 @@ ScriptedImporter:
 '
   optimizeGameObjects: 0
   materials:
-  - {instanceID: 0}
+  - {fileID: 5863650252929523565, guid: 25ddfd1a288f445abbedd2be95c3237d, type: 3}
   textures:
   - {fileID: 2800000, guid: eb89ff587236040c1a2089f8e329cedc, type: 3}
   - {fileID: 2800000, guid: d8090bd7e0b2a4719b7135b9ff5c7b9f, type: 3}

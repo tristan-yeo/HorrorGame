@@ -5,6 +5,8 @@ public class DoubleDoor : MonoBehaviour
     [SerializeField] private Animator door = null;
     [SerializeField] private AudioSource audioSource = null;
     [SerializeField] private AudioClip doorSound;
+    [SerializeField] private AudioClip doorCloseSound;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +29,14 @@ public class DoubleDoor : MonoBehaviour
         if (audioSource != null && doorSound != null)
         {
             audioSource.PlayOneShot(doorSound);
+        }
+    }
+
+    public void PlayDoorCloseSound()
+    {
+        if (audioSource != null && doorCloseSound != null)
+        {
+            audioSource.PlayOneShot(doorCloseSound);
         }
     }
 

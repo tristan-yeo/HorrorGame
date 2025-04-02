@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3600963653984511316}
   - component: {fileID: 4940734685007496630}
   - component: {fileID: 2634996034067453782}
-  - component: {fileID: 1557066645028524231}
   - component: {fileID: 7265815077334802034}
+  - component: {fileID: 5484106699441560091}
   m_Layer: 0
   m_Name: SingleDoor
   m_TagString: Untagged
@@ -52,9 +52,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.14011657, y: 2.021075, z: 1}
   m_Center: {x: -0.005399715, y: 0.0037324429, z: -4.370756e-19}
@@ -79,23 +79,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1557066645028524231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111779911330998765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e608d4e9e2e60c4abf1a56df49dba3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  keyOBNeeded: {fileID: 0}
-  openText: {fileID: 0}
-  keyMissingText: {fileID: 0}
-  doorSound: {fileID: 0}
 --- !u!82 &7265815077334802034
 AudioSource:
   m_ObjectHideFlags: 0
@@ -106,7 +89,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7f6c0922c47ad42a38e83629fbbd3e5c, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -192,6 +175,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5484106699441560091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111779911330998765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f256e7f8e3748b182e2614f9bd1d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 2634996034067453782}
+  audioSource: {fileID: 7265815077334802034}
+  doorSound: {fileID: 8300000, guid: 7f6c0922c47ad42a38e83629fbbd3e5c, type: 3}
+  doorCloseSound: {fileID: 8300000, guid: 8e95f6828dbb64f94846e71a50a9146d, type: 3}
 --- !u!1 &3964939761895107029
 GameObject:
   m_ObjectHideFlags: 0

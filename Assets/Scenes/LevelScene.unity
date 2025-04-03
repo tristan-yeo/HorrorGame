@@ -63080,6 +63080,10 @@ PrefabInstance:
       value: FrontDesk
       objectReference: {fileID: 0}
     - target: {fileID: 9036801818930232345, guid: 7a3d7e0f2943741c19b245de52d07067, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5381287780103878093, guid: 4524a81950d024760adfc10e8c83572e, type: 3}
+    - target: {fileID: 9036801818930232345, guid: 7a3d7e0f2943741c19b245de52d07067, type: 3}
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}

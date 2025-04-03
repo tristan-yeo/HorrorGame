@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PickUpBatteries : MonoBehaviour
 {
-    public GameObject batteryPair;       // Reference to the Battery Pair GameObject (parent of Battery and Battery(1))
-    public GameObject invOB;             // Battery icon or inventory object to enable
-    public GameObject pickUpText;        // Pickup UI prompt
-    public AudioSource batterySound;     // Pickup sound effect
+    public GameObject batteryPair;
+    public GameObject invOB;
+    public GameObject pickUpText;
+    public AudioSource batterySound;
 
     public bool inReach;
 
-    public ToggleCRT toggleCRT;          // To check if CRT is on (used for showing pickup text)
-    public CameraBattery cameraBattery;  // Reference to CameraBattery script
+    public ToggleCRT toggleCRT;
+    public CameraBattery cameraBattery;
 
     void Start()
     {
@@ -26,10 +26,8 @@ public class PickUpBatteries : MonoBehaviour
         if (other.gameObject.tag == "Reach")
         {
             inReach = true;
-            if (toggleCRT != null && toggleCRT.IsCameraOn())
-            {
-                pickUpText.SetActive(true);
-            }
+            // Always show the pickup text when in range (regardless of camera state)
+            pickUpText.SetActive(true);
         }
     }
 
@@ -44,28 +42,19 @@ public class PickUpBatteries : MonoBehaviour
 
     void Update()
     {
-        if (toggleCRT != null && !toggleCRT.IsCameraOn())
-        {
-            pickUpText.SetActive(false);
-        }
-
+        // Removed camera check here — we always want to allow pickup
         if (inReach && Input.GetButtonDown("Interact"))
         {
-            // Deactivate the batteries in the world
             batteryPair.SetActive(false);
 
-            // Play pickup SFX
             if (batterySound != null)
                 batterySound.Play();
 
-            // Show the inventory battery icon
             if (invOB != null)
                 invOB.SetActive(true);
 
-            // Hide pickup prompt
             pickUpText.SetActive(false);
 
-            // Recharge the camera battery to full
             if (cameraBattery != null)
                 cameraBattery.RechargeBattery();
         }

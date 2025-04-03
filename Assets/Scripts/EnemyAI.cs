@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public float patrolRadius = 10f; // Radius for random patrol points
     public float soundReactionTime = 3f; // Time to linger at the sound location
     public float detectionRange = 15f; // Range within which sound is detected
+    public Animator animator;
 
     private NavMeshAgent agent;
     private Vector3 lastHeardSoundLocation;
@@ -21,6 +22,14 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        bool isMoving = agent.hasPath && agent.remainingDistance > 0.1f;
+        animator.SetBool("isWalking", isMoving);
+
+        if (agent.velocity.magnitude > 0.1f) 
+        {
+            transform.forward = agent.velocity.normalized;
+        }
+
         if (!agent.pathPending && agent.remainingDistance < 0.5f && !isReactingToSound)
         {
             Patrol();

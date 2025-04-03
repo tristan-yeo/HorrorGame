@@ -1,0 +1,120 @@
+fileFormatVersion: 2
+guid: 3ce777e72dddb44f49f364084be58d10
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 1
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 0
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 0
+  _texturesReadWriteEnabled: 1
+  _generateMipMaps: 1
+  _useSceneNameIdentifier: 1
+  _textureCompression: -50
+  _gltfAsset: '<b>Generator: </b>Sketchfab-15.5.0
+
+    <b>Version: </b>2.0
+
+
+    <b>Extras:
+    </b>
+
+    "author": "4dimension (https://sketchfab.com/4dimension)"
+
+    "license":
+    "CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)"
+
+    "source":
+    "https://sketchfab.com/3d-models/hospital-door-95d27705b971422491c01eb72b43e940"
+
+    "title":
+    "Hospital Door"
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  textures:
+  - {fileID: 2800000, guid: 9827311ff4ca34823a05952cc9eb86e9, type: 3}
+  - {fileID: 2800000, guid: a2cd8a9091b1c434a8ea82f92f5bab8b, type: 3}
+  - {fileID: 2800000, guid: ff892e64e539b4e08870809b3999b8ef, type: 3}
+  - {fileID: 2800000, guid: f44b8156a8eb24164af65083efcdfa46, type: 3}
+  - {fileID: 2800000, guid: a72df47441f324525b6e5817c6a5fe35, type: 3}
+  - {fileID: 2800000, guid: 57886fe9dfc044dce9a6e71f328deae9, type: 3}
+  - {fileID: 2800000, guid: ed0a7567607d5497782f7f4a69406be2, type: 3}
+  - {fileID: 2800000, guid: 2b08b1375e2cc4344b6e1ac0eb7a800e, type: 3}
+  - {fileID: 2800000, guid: 145aa0fc1e3f94201b140afb4306f653, type: 3}
+  - {fileID: 2800000, guid: c419f659ee56645f082528c92acd38be, type: 3}
+  - {fileID: 2800000, guid: 12c18662cc6544f6e88ebcb550e25ae9, type: 3}
+  - {fileID: 2800000, guid: 9537fa84c645e4eb9a3c59cac2c00854, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 0
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations: []
+  _extensions: []
+  _textures:
+  - texture: {fileID: 2800000, guid: 9827311ff4ca34823a05952cc9eb86e9, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: a2cd8a9091b1c434a8ea82f92f5bab8b, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: ff892e64e539b4e08870809b3999b8ef, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: f44b8156a8eb24164af65083efcdfa46, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: a72df47441f324525b6e5817c6a5fe35, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 57886fe9dfc044dce9a6e71f328deae9, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: ed0a7567607d5497782f7f4a69406be2, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 2b08b1375e2cc4344b6e1ac0eb7a800e, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 145aa0fc1e3f94201b140afb4306f653, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: c419f659ee56645f082528c92acd38be, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 12c18662cc6544f6e88ebcb550e25ae9, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 9537fa84c645e4eb9a3c59cac2c00854, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  _mainAssetIdentifier: scenes/Sketchfab_Scene
+  _importPlugins: []

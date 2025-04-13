@@ -9,8 +9,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      propertyPath: m_SpotAngle
+      value: 109
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       propertyPath: m_Shadows.m_Bias
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2434508210893704096, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       propertyPath: m_Name

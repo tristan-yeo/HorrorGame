@@ -1,0 +1,118 @@
+fileFormatVersion: 2
+guid: aa7b843fcf55a49cc85dae98626f7080
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 1
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 0
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 0
+  _texturesReadWriteEnabled: 1
+  _generateMipMaps: 1
+  _useSceneNameIdentifier: 1
+  _textureCompression: -50
+  _gltfAsset: '<b>Generator: </b>Sketchfab-12.68.0
+
+    <b>Version: </b>2.0
+
+
+    <b>Extras:
+    </b>
+
+    "author": "seenoise (https://sketchfab.com/seenoise)"
+
+    "license":
+    "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)"
+
+    "source": "https://sketchfab.com/3d-models/remains-7663ab71893f44b2b6466db3c625b061"
+
+    "title":
+    "Remains"
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  - {instanceID: 0}
+  textures:
+  - {fileID: 2800000, guid: e358a5684e02e49e1a5ad8834249ebc7, type: 3}
+  - {fileID: 2800000, guid: 88398e81c86854e839d2e37a5fd8ba1f, type: 3}
+  - {fileID: 2800000, guid: 333a7bf6b05524ee88c0ee376650dd80, type: 3}
+  - {fileID: 2800000, guid: d6fdd6f52f5ed413197559d64a06de35, type: 3}
+  - {fileID: 2800000, guid: 671e65ac6c4b44d9db0e276ee6707aca, type: 3}
+  - {fileID: 2800000, guid: f907e0664273849399f77633730ce564, type: 3}
+  - {fileID: 2800000, guid: f223e846f0dbd4cd9a98c348d15ed02d, type: 3}
+  - {fileID: 2800000, guid: 988f2c1dd74c44af7ade375f43c0fd0b, type: 3}
+  - {fileID: 2800000, guid: 2517ea60f36a941f8a6f543eaa11a46e, type: 3}
+  - {fileID: 2800000, guid: a0c6332c3d7534577b1634bb348cdd2b, type: 3}
+  - {fileID: 2800000, guid: f0744d2d41a674cfb8fd1d19cf01b4c5, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 0
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations: []
+  _extensions: []
+  _textures:
+  - texture: {fileID: 2800000, guid: e358a5684e02e49e1a5ad8834249ebc7, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 88398e81c86854e839d2e37a5fd8ba1f, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: 333a7bf6b05524ee88c0ee376650dd80, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: d6fdd6f52f5ed413197559d64a06de35, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 671e65ac6c4b44d9db0e276ee6707aca, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: f907e0664273849399f77633730ce564, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: f223e846f0dbd4cd9a98c348d15ed02d, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: 988f2c1dd74c44af7ade375f43c0fd0b, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 2517ea60f36a941f8a6f543eaa11a46e, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  - texture: {fileID: 2800000, guid: a0c6332c3d7534577b1634bb348cdd2b, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: f0744d2d41a674cfb8fd1d19cf01b4c5, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  _mainAssetIdentifier: scenes/Sketchfab_Scene
+  _importPlugins: []

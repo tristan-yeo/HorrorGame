@@ -1,0 +1,11 @@
+Model Information:
+* title:	PS1 Horror Hospital Crib
+* source:	https://sketchfab.com/3d-models/ps1-horror-hospital-crib-c5204a4bca7c47f79c729164aa86c737
+* author:	Jan_Strydom (https://sketchfab.com/JanStrydom)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "PS1 Horror Hospital Crib" (https://sketchfab.com/3d-models/ps1-horror-hospital-crib-c5204a4bca7c47f79c729164aa86c737) by Jan_Strydom (https://sketchfab.com/JanStrydom) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

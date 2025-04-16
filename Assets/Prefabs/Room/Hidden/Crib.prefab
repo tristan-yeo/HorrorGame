@@ -207,6 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1497312014128925177}
+  - component: {fileID: 8315092845889153557}
   m_Layer: 0
   m_Name: Crib
   m_TagString: Untagged
@@ -224,7 +225,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 101.52, y: 0.37, z: -13.37}
-  m_LocalScale: {x: 0.07, y: 0.049999997, z: 0.049999997}
+  m_LocalScale: {x: 0.07, y: 0.04, z: 0.049999997}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 584198456581727773}
@@ -234,6 +235,27 @@ Transform:
   - {fileID: 4674924875720017549}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8315092845889153557
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3358907865772812012}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 21.878702, y: 30.851896, z: 36.470726}
+  m_Center: {x: 0.22790262, y: 14.925946, z: 0.033662323}
 --- !u!1 &3537668781878619530
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2210054659374255577}
   - component: {fileID: 4727070424436277547}
   - component: {fileID: 5163098807171843050}
+  - component: {fileID: -1427270614942706305}
   m_Layer: 0
   m_Name: BloodTrail
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-1427270614942706305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352382844039127030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ea2ddf75905243b6a71c463fc1b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleCRT: {fileID: 0}

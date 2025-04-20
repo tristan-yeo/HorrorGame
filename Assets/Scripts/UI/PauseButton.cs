@@ -2,10 +2,14 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using TMPro;
 
 public class pauseButton : MonoBehaviour
 {
     [SerializeField] private Volume postProcessingVolume;
+    [SerializeField] private MonoBehaviour cameraController;
+    [SerializeField] private TMP_Text pauseInstructionText; 
+
     
     // Visual effect parameters
     [SerializeField] private float pausedVignetteIntensity = 0.8f;
@@ -43,6 +47,14 @@ public class pauseButton : MonoBehaviour
         
         // Pause/unpause game time
         Time.timeScale = isPaused ? 0f : 1f;
+
+        // Enable/disable camera controller
+        if (cameraController != null)
+            cameraController.enabled = !isPaused;
+        
+        // Make sure the instruction text is hidden at start
+        if (pauseInstructionText != null)
+            pauseInstructionText.gameObject.SetActive(isPaused);
         
         // Change visual effects
         if (vignette != null)

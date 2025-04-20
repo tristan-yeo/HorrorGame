@@ -1,66 +1,72 @@
-using BrewedInk.CRT;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ToggleCRT : MonoBehaviour
 {
-    [SerializeField]
-    private CRTCameraBehaviour crtCameraBehaviour; // Drag & drop in Inspector
+    [SerializeField] private UniversalRendererData rendererData;
 
-    [SerializeField]
-    private GameObject cameraGameObject; // Drag & drop the "Camera" GameObject in Inspector
+    [SerializeField] private string featureName = "FullScreenPassRendererFeature";
 
-    // Flag to determine if toggling is allowed
+    [SerializeField] private GameObject cameraUI;
+
+    private ScriptableRendererFeature fullScreenFeature;
     private bool canToggle = true;
+
+    void Awake()
+    {
+        if (rendererData == null)
+        {
+            Debug.LogError("ToggleCRT: Renderer Data not assigned!");
+            return;
+        }
+
+        foreach (var feat in rendererData.rendererFeatures)
+        {
+            if (feat != null && feat.name == featureName)
+            {
+                fullScreenFeature = feat;
+                break;
+            }
+        }
+
+        if (fullScreenFeature == null)
+            Debug.LogError($"ToggleCRT: Cannot find feature '{featureName}' in {rendererData.name}.");
+    }
 
     void Update()
     {
-        if (!canToggle)
+        if (!canToggle || fullScreenFeature == null)
             return;
 
         if (Input.GetButtonDown("ToggleCamera"))
         {
-            // Toggle the CRT behavior
-            crtCameraBehaviour.enabled = !crtCameraBehaviour.enabled;
+            bool newState = !fullScreenFeature.isActive;
 
-            // Toggle the camera GameObject and all its children
-            if (cameraGameObject != null)
-            {
-                cameraGameObject.SetActive(!cameraGameObject.activeSelf);
-            }
+            fullScreenFeature.SetActive(newState);
+
+            if (cameraUI != null)
+                cameraUI.SetActive(newState);
             else
-            {
-                Debug.LogWarning("Camera GameObject is not assigned!");
-            }
+                Debug.LogWarning("ToggleCRT: Camera UI GameObject not assigned!");
         }
     }
-
-    // Called by the battery script when battery reaches 0%
     public void DisableCamera()
     {
         canToggle = false;
-        crtCameraBehaviour.enabled = false;
+        if (fullScreenFeature != null)
+            fullScreenFeature.SetActive(false);
 
-        if (cameraGameObject != null)
-        {
-            cameraGameObject.SetActive(false);
-        }
-        else
-        {
-            Debug.LogWarning("Camera GameObject is not assigned!");
-        }
+        if (cameraUI != null)
+            cameraUI.SetActive(false);
     }
 
-    // Called when the battery is recharged to allow toggling again
     public void EnableCameraToggle()
     {
         canToggle = true;
     }
 
-    // Returns true if the camera is currently on (active)
     public bool IsCameraOn()
     {
-        if (cameraGameObject == null)
-            return false;
-        return cameraGameObject.activeSelf;
+        return fullScreenFeature != null && fullScreenFeature.isActive;
     }
 }

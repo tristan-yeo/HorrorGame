@@ -6921,14 +6921,17 @@ GameObject:
   m_Component:
   - component: {fileID: 714598907552229953}
   - component: {fileID: 1532917344455422675}
-  - component: {fileID: 2694986472358297445}
   - component: {fileID: 6531586319202869451}
   - component: {fileID: 6236309067012784813}
   - component: {fileID: 7267076400121644563}
   - component: {fileID: 3491319558107842858}
+  - component: {fileID: 6257437056982543232}
+  - component: {fileID: -2967838189436819446}
+  - component: {fileID: 3078835437459891694}
+  - component: {fileID: 2693225211399855888}
   m_Layer: 0
   m_Name: Kuntilanak
-  m_TagString: Untagged
+  m_TagString: IgnoreVisibilityToggle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7023,29 +7026,6 @@ MonoBehaviour:
   m_ForceModule: {fileID: 0}
   m_ForceScale: 1
   m_SimulateSpace: {fileID: 0}
---- !u!136 &2694986472358297445
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7367150102209350089}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.7694838
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.84765375, z: 0}
 --- !u!54 &6531586319202869451
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7108,8 +7088,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolRadius: 10
-  soundReactionTime: 3
-  detectionRange: 15
+  sightRange: 10
+  sightAngle: 60
+  player: {fileID: 7277205610757936915, guid: e9f438b566987764a8c069b850c76d9c, type: 3}
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 8
   animator: {fileID: 3491319558107842858}
 --- !u!95 &3491319558107842858
 Animator:
@@ -7132,6 +7116,73 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6257437056982543232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367150102209350089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7079ff7ec94ba214ea6322e324dc223e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodPrefabs:
+  - {fileID: 352382844039127030, guid: 189a36b5fbd009c4cbd99d6d255a8595, type: 3}
+  spawnInterval: 0.5
+  bloodLifespan: 5
+--- !u!114 &-2967838189436819446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367150102209350089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfa4ae11fb056845b662810386d78b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpscareEnemyPrefab: {fileID: 8271330875179320423, guid: 8834db73eee132e4286acafbb70cebe4, type: 3}
+  audioClips: []
+  jumpscareDuration: 1
+  jumpscarePositionOffset: {x: 0, y: 0, z: 0}
+  jumpscareRotationOffset: {x: 0, y: 0, z: 0}
+--- !u!65 &3078835437459891694
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367150102209350089}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2, y: 1.7, z: 1.2}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &2693225211399855888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367150102209350089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5ea2ddf75905243b6a71c463fc1b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleCRT: {fileID: 0}
 --- !u!1 &7384577480131355767
 GameObject:
   m_ObjectHideFlags: 0

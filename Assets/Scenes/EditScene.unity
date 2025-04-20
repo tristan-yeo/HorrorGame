@@ -39740,6 +39740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kuntilanak
       objectReference: {fileID: 0}
+    - target: {fileID: 7367150102209350089, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -148355,6 +148359,9 @@ MonoBehaviour:
   takePicText: {fileID: 2012638834}
   photoCollectedObj: {fileID: 1875409503}
   shutterSound: {fileID: 956911239}
+  postProcessVolume: {fileID: 426380303}
+  flashBloomIntensity: 100
+  bloomFadeDuration: 1
 --- !u!1001 &3936583485788920789
 PrefabInstance:
   m_ObjectHideFlags: 0

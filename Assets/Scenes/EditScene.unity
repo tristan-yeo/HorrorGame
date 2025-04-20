@@ -36068,6 +36068,10 @@ MonoBehaviour:
   wallBlocker: {fileID: 2007777372}
   doorObject: {fileID: 11957707}
   player: {fileID: 743794505}
+  objectiveText: {fileID: 1318932795}
+  exploreObjective: explore the house and find something spooky
+  babyDiscoveredObjective: make baby stfu.. find the baby's toy
+  toyReturnedObjective: escape from kunti n get out
 --- !u!4 &523561159
 Transform:
   m_ObjectHideFlags: 0
@@ -90529,7 +90533,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Take a picture of something spooky.
+  m_text: obejctivetexthere edit me in gameeventmanager!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 960c21f5dbba148f89de6d9114cbc8f0, type: 2}
   m_sharedMaterial: {fileID: -1757280041418844316, guid: 960c21f5dbba148f89de6d9114cbc8f0, type: 2}
@@ -98532,7 +98536,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 1976353135}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 743794505}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
@@ -149937,6 +149941,10 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1976353135}
+  - {fileID: 426380304}
+  - {fileID: 523561159}
+  - {fileID: 1362011327}
+  - {fileID: 71130535}
   - {fileID: 1083803729}
   - {fileID: 2043655969}
   - {fileID: 960720102}
@@ -149944,9 +149952,5 @@ SceneRoots:
   - {fileID: 169081623}
   - {fileID: 1998733738}
   - {fileID: 1381802758}
-  - {fileID: 426380304}
   - {fileID: 1499601612}
   - {fileID: 571995990}
-  - {fileID: 523561159}
-  - {fileID: 1362011327}
-  - {fileID: 71130535}

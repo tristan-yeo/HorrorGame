@@ -19,6 +19,12 @@ public class TakePicture : MonoBehaviour
     [Tooltip("How long (in seconds) it takes to fade bloom back to original.")]
     public float bloomFadeDuration = 0.5f;
 
+    [Header("Game Events")]
+    public GameEventManager eventManager;
+
+    [Header("One-shot Scare FX")]
+    public AudioSource screamAudio;
+
     // internal bloom handle
     private Bloom _bloom;
     private float _originalBloomIntensity;
@@ -101,6 +107,17 @@ public class TakePicture : MonoBehaviour
             // start the bloom flash
             if (_bloom != null)
                 StartCoroutine(FlashBloom());
+
+            if (screamAudio != null)
+            {
+                screamAudio.Play();
+            }
+
+            // Tell event manager that Baby is photographed 
+            if (eventManager != null)
+            {
+                eventManager.OnBabyPhotoTaken();
+            }
         }
     }
 

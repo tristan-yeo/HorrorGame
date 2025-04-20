@@ -2,36 +2,31 @@ using UnityEngine;
 
 public class ConditionalVisibilitySpecific : MonoBehaviour
 {
-    [SerializeField]
-    private ToggleCRT toggleCRT; // Assign the ToggleCRT component from your player camera
+    [SerializeField] private ToggleCRT toggleCRT;
 
     private Renderer[] objectRenderers;
     private Collider[] objectColliders;
 
     void Awake()
     {
-        // Retrieve all Renderer and Collider components on this GameObject and its children.
-        objectRenderers = GetComponentsInChildren<Renderer>();
-        objectColliders = GetComponentsInChildren<Collider>();
+        // Grab everything in this GameObject & its children
+        objectRenderers = GetComponentsInChildren<Renderer>(true);
+        objectColliders = GetComponentsInChildren<Collider>(true);
     }
 
     void Update()
     {
-        // Check if the CRT camera is active/toggled on.
-        bool isVisible = toggleCRT != null && toggleCRT.IsCameraOn();
+        bool isVisible = (toggleCRT != null) && toggleCRT.IsCameraOn();
 
-        // Toggle all renderers.
-        foreach (Renderer renderer in objectRenderers)
-        {
-            renderer.enabled = isVisible;
-        }
+        // Flip renderers
+        foreach (var rend in objectRenderers)
+            rend.enabled = isVisible;
 
-        // Toggle all colliders, unless the object is tagged "IgnoreVisibilityToggle".
-        foreach (Collider col in objectColliders)
+        // Flip colliders (unless tagged to ignore)
+        foreach (var col in objectColliders)
         {
-            if (col.gameObject.CompareTag("IgnoreVisibilityToggle"))
+            if (col.CompareTag("IgnoreVisibilityToggle"))
                 continue;
-
             col.enabled = isVisible;
         }
     }

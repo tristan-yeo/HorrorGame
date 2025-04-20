@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public float patrolRadius = 10f;
-    public float soundReactionTime = 3f;
     public float sightRange = 20f;          // How far the enemy can see
     public float sightAngle = 60f;          // Field of view angle
     public Transform player;                // Assign player in inspector
@@ -99,12 +98,10 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator ReactToSound()
     {
-        while (!agent.pathPending && agent.remainingDistance > 0.5f)
+        while (!agent.pathPending || agent.remainingDistance > 0.5f)
         {
             yield return null;
         }
-
-        yield return new WaitForSeconds(soundReactionTime);
 
         isReactingToSound = false;
         Patrol();

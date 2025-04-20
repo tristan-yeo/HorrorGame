@@ -280,6 +280,7 @@ public class FirstPersonController : MonoBehaviour
             {
                 isZoomed = false;
                 playerCamera.fieldOfView = Mathf.Lerp(playerCamera.fieldOfView, sprintFOV, sprintFOVStepTime * Time.deltaTime);
+                GenerateSound();
 
                 // Drain sprint remaining while sprinting
                 if(!unlimitedSprint)
@@ -524,6 +525,15 @@ public class FirstPersonController : MonoBehaviour
             // Resets when play stops moving
             timer = 0;
             joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
+        }
+    }
+
+    void GenerateSound()
+    {
+        EnemyAI enemy = FindObjectOfType<EnemyAI>();
+        if (enemy != null)
+        {
+            enemy.HearSound(joint.position);
         }
     }
 }

@@ -51,6 +51,11 @@ public class EnemyJumpscare : MonoBehaviour
 
         GameObject jumpscareEnemy = Instantiate(jumpscareEnemyPrefab, spawnPos, spawnRot);
 
+        // Play Jumpscare Audio
+        if (audioClips.Length > 0 && SoundFXManager.instance != null)
+        {
+            SoundFXManager.instance.PlayRandomSoundFXClip(audioClips, transform, 1f);
+        }
         // Make the camera look at the enemy
         Transform cam = Camera.main.transform;
         Transform faceTarget = jumpscareEnemy.transform.Find("FaceTarget");

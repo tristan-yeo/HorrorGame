@@ -13,7 +13,7 @@ public class GameEventManager : MonoBehaviour
     public GameState currentState = GameState.Explore;
 
     [Header("Game Object References")]
-    public EnemyAI kuntilanakAI;
+    public GameObject kuntilanak;
     public GameObject cryingBaby;
     public GameObject wallBlocker;
     public GameObject doorObject;
@@ -36,8 +36,8 @@ public class GameEventManager : MonoBehaviour
         wallBlocker.SetActive(false);
         previousState = currentState;
 
-        if (kuntilanakAI != null)
-            kuntilanakAI.enabled = false;
+        if (kuntilanak != null)
+            kuntilanak.SetActive(false);;
 
         // Set initial objective text
         UpdateObjectiveText();
@@ -60,9 +60,9 @@ public class GameEventManager : MonoBehaviour
 
             case GameState.BabyDiscovered:
                 // entity becomes aggressive
-                if (kuntilanakAI != null)
+                if (kuntilanak != null)
                 {
-                    kuntilanakAI.enabled = true;
+                    kuntilanak.SetActive(true);;
                     Debug.Log("Entity is enabled.");
                 }
                 break;

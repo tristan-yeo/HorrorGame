@@ -4,10 +4,9 @@ using UnityEngine.Rendering.Universal;
 public class ToggleCRT : MonoBehaviour
 {
     [SerializeField] private UniversalRendererData rendererData;
-
     [SerializeField] private string featureName = "FullScreenPassRendererFeature";
-
     [SerializeField] private GameObject cameraUI;
+    [SerializeField] private AudioSource toggleOnSound;
 
     private ScriptableRendererFeature fullScreenFeature;
     private bool canToggle = true;
@@ -48,8 +47,18 @@ public class ToggleCRT : MonoBehaviour
                 cameraUI.SetActive(newState);
             else
                 Debug.LogWarning("ToggleCRT: Camera UI GameObject not assigned!");
+
+            // PLAY SOUND WHEN CAMERA TURNS ON
+            if (newState)
+            {
+                if (toggleOnSound != null)
+                    toggleOnSound.Play();
+                else
+                    Debug.LogWarning("ToggleCRT: toggleOnSound AudioSource not assigned!");
+            }
         }
     }
+
     public void DisableCamera()
     {
         canToggle = false;

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class menu : MonoBehaviour
 {
-    [SerializeField] private string gameSceneName = "Level1"; // Set this to your first level scene name
+    [SerializeField] private string gameSceneName = "EditScene";
     
     public void StartGame()
     {

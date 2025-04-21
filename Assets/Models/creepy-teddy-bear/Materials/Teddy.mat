@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BloodDecalShader_Material2
-  m_Shader: {fileID: 4800000, guid: 3abc2696835a57e47a3fb05babf7e908, type: 3}
+  m_Name: Teddy
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -17,12 +17,17 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 55981e8d1f0e9474fb02b174d73328d3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -39,40 +44,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _DriedBlood_Curvature:
-        m_Texture: {fileID: 2800000, guid: 3474b516636194d45bff181db4ca9219, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DriedBlood_Normal:
-        m_Texture: {fileID: 2800000, guid: 02d60c8213d240b42bcefbdd51d377ec, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainNormalMap:
-        m_Texture: {fileID: 2800000, guid: 97eed96d42f3bf341887c405637a9cfe, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: c587e8165deca0f4393c71f4b8cf41eb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 55981e8d1f0e9474fb02b174d73328d3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTexture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Noise_Texture:
-        m_Texture: {fileID: 2800000, guid: 512a2c50bd2f7c643bba3890aa293ad8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -83,7 +64,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _texcoord:
+    - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -101,48 +82,52 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaCutoff: 0.5
-    - _Bias: 0.575
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
+    - _Cull: 2
     - _Cutoff: 0.5
+    - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DriedBloodEffectLevel: 0.033
-    - _DriedBloodEffect_Tiling: 395
-    - _DriedBlood_Metallic: 0.29
-    - _DriedOpacityLevel: 0.61
     - _DstBlend: 0
+    - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Float0: 191.93
-    - _Gloss: 1
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0.356
-    - _Mode: 0
-    - _Noise: 23.1
-    - _Noise1: 33.5
-    - _Noise2: 7.3
-    - _NoiseInFreshBlood: 0.465
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
+    - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OverallNormalPower: 1
-    - _Parallax: 0.02
-    - _QueueControl: 0
+    - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Scale: 0.658
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TrasparencyPower: 0.1
-    - _UVSec: 0
+    - _SrcBlendAlpha: 1
+    - _Surface: 0
+    - _WorkflowMode: 1
     - _ZWrite: 1
-    - __dirty: 0
-    - _bias: 0.664
-    - _m: -0.57
     m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DriedBloodColorGloss: {r: 0.16176468, g: 0.08629634, b: 0.052335635, a: 0.153}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColorTint: {r: 0.36764705, g: 0.17841695, b: 0.17841695, a: 1}
-    - _MainColorTintFadeA: {r: 0.5283019, g: 0.05233179, b: 0.05233179, a: 1}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &8314759523029447813
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7

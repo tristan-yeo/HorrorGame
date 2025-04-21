@@ -36564,7 +36564,7 @@ MonoBehaviour:
   cryingBaby: {fileID: 863530273}
   wallBlocker: {fileID: 2007777372}
   doorObject: {fileID: 11957707}
-  player: {fileID: 743794505}
+  player: {fileID: 0}
   objectiveText: {fileID: 1318932795}
   exploreObjective: explore and find something spooky
   babyDiscoveredObjective: make baby stfu.. find the baby's toy
@@ -51774,11 +51774,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f7abaadca23ea4d910efe028624076, type: 3}
---- !u!1 &743794505 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
-  m_PrefabInstance: {fileID: 1976353135}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &743830524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99595,7 +99590,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 1976353135}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743794505}
+  m_GameObject: {fileID: 707988044}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
@@ -139069,6 +139064,10 @@ PrefabInstance:
       propertyPath: walkStepInterval
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: sprintBarHeightPercent
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: m_Name
       value: FirstPersonController
@@ -151301,7 +151300,6 @@ SceneRoots:
   - {fileID: 523561159}
   - {fileID: 1362011327}
   - {fileID: 71130535}
-  - {fileID: 426380304}
   - {fileID: 1083803729}
   - {fileID: 2043655969}
   - {fileID: 960720102}

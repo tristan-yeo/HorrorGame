@@ -92,31 +92,50 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
-    #region Jump
+    // #region Jump
 
-    public bool enableJump = true;
-    public KeyCode jumpKey = KeyCode.Space;
-    public float jumpPower = 5f;
+    // public bool enableJump = true;
+    // public KeyCode jumpKey = KeyCode.Space;
+    // public float jumpPower = 5f;
 
-    // Internal Variables
-    private bool isGrounded = false;
+    // // Internal Variables
+    // private bool isGrounded = false;
+
+    // #endregion
+
+    // #region Crouch
+
+    // public bool enableCrouch = true;
+    // public bool holdToCrouch = true;
+    // public KeyCode crouchKey = KeyCode.LeftControl;
+    // public float crouchHeight = .75f;
+    // public float speedReduction = .5f;
+
+    // // Internal Variables
+    // private bool isCrouched = false;
+    // private Vector3 originalScale;
+
+    // #endregion
 
     #endregion
 
-    #region Crouch
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip walkSound;
+    public AudioClip sprintSound;
 
-    public bool enableCrouch = true;
-    public bool holdToCrouch = true;
-    public KeyCode crouchKey = KeyCode.LeftControl;
-    public float crouchHeight = .75f;
-    public float speedReduction = .5f;
+    [Range(0f, 1f)]
+    public float footstepVolume = 0.5f;
+    
+    [Tooltip("Time between footstep sounds when walking")]
+    public float walkStepInterval = 0.5f;
+    
+    [Tooltip("Time between footstep sounds when sprinting")]
+    public float sprintStepInterval = 0.3f;
+    
+    private float footstepTimer = 0f;
 
-    // Internal Variables
-    private bool isCrouched = false;
-    private Vector3 originalScale;
-
-    #endregion
-    #endregion
+    
 
     #region Head Bob
 
@@ -139,13 +158,25 @@ public class FirstPersonController : MonoBehaviour
 
         // Set internal variables
         playerCamera.fieldOfView = fov;
-        originalScale = transform.localScale;
+        // originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
 
         if (!unlimitedSprint)
         {
             sprintRemaining = sprintDuration;
             sprintCooldownReset = sprintCooldown;
+        }
+
+        // If no audio source is assigned, try to get or add one
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+                audioSource.spatialBlend = 0f;
+                audioSource.playOnAwake = false;
+            }
         }
     }
 
@@ -324,45 +355,47 @@ public class FirstPersonController : MonoBehaviour
 
         #endregion
 
-        #region Jump
+        // #region Jump
 
-        // Gets input and calls jump method
-        if(enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
-        {
-            Jump();
-        }
+        // // Gets input and calls jump method
+        // if(enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        // {
+        //     Jump();
+        // }
 
-        #endregion
+        // #endregion
 
-        #region Crouch
+        // #region Crouch
 
-        if (enableCrouch)
-        {
-            if(Input.GetKeyDown(crouchKey) && !holdToCrouch)
-            {
-                Crouch();
-            }
+        // if (enableCrouch)
+        // {
+        //     if(Input.GetKeyDown(crouchKey) && !holdToCrouch)
+        //     {
+        //         Crouch();
+        //     }
             
-            if(Input.GetKeyDown(crouchKey) && holdToCrouch)
-            {
-                isCrouched = false;
-                Crouch();
-            }
-            else if(Input.GetKeyUp(crouchKey) && holdToCrouch)
-            {
-                isCrouched = true;
-                Crouch();
-            }
-        }
+        //     if(Input.GetKeyDown(crouchKey) && holdToCrouch)
+        //     {
+        //         isCrouched = false;
+        //         Crouch();
+        //     }
+        //     else if(Input.GetKeyUp(crouchKey) && holdToCrouch)
+        //     {
+        //         isCrouched = true;
+        //         Crouch();
+        //     }
+        // }
 
-        #endregion
+        // #endregion
 
-        CheckGround();
+        // CheckGround();
 
         if(enableHeadBob)
         {
             HeadBob();
         }
+
+        HandleFootsteps();
     }
 
     void FixedUpdate()
@@ -376,7 +409,7 @@ public class FirstPersonController : MonoBehaviour
 
             // Checks if player is walking and isGrounded
             // Will allow head bob
-            if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
+            if (targetVelocity.x != 0 || targetVelocity.z != 0)
             {
                 isWalking = true;
             }
@@ -403,10 +436,10 @@ public class FirstPersonController : MonoBehaviour
                 {
                     isSprinting = true;
 
-                    if (isCrouched)
-                    {
-                        Crouch();
-                    }
+                    // if (isCrouched)
+                    // {
+                    //     Crouch();
+                    // }
 
                     if (hideBarWhenFull && !unlimitedSprint)
                     {
@@ -443,60 +476,94 @@ public class FirstPersonController : MonoBehaviour
     }
 
     // Sets isGrounded based on a raycast sent straigth down from the player object
-    private void CheckGround()
-    {
-        Vector3 origin = new Vector3(transform.position.x, transform.position.y - (transform.localScale.y * .5f), transform.position.z);
-        Vector3 direction = transform.TransformDirection(Vector3.down);
-        float distance = .75f;
+    // private void CheckGround()
+    // {
+    //     Vector3 origin = new Vector3(transform.position.x, transform.position.y - (transform.localScale.y * .5f), transform.position.z);
+    //     Vector3 direction = transform.TransformDirection(Vector3.down);
+    //     float distance = .75f;
 
-        if (Physics.Raycast(origin, direction, out RaycastHit hit, distance))
+    //     if (Physics.Raycast(origin, direction, out RaycastHit hit, distance))
+    //     {
+    //         Debug.DrawRay(origin, direction * distance, Color.red);
+    //         isGrounded = true;
+    //     }
+    //     else
+    //     {
+    //         isGrounded = false;
+    //     }
+    // }
+
+    // private void Jump()
+    // {
+    //     // Adds force to the player rigidbody to jump
+    //     if (isGrounded)
+    //     {
+    //         rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
+    //         isGrounded = false;
+    //     }
+
+    //     // When crouched and using toggle system, will uncrouch for a jump
+    //     if(isCrouched && !holdToCrouch)
+    //     {
+    //         Crouch();
+    //     }
+    // }
+
+    private void HandleFootsteps()
+    {
+        // Only play footsteps when grounded and moving
+        if (!isWalking)
         {
-            Debug.DrawRay(origin, direction * distance, Color.red);
-            isGrounded = true;
+            return;
         }
-        else
+        
+        footstepTimer -= Time.deltaTime;
+        
+        if (footstepTimer <= 0)
         {
-            isGrounded = false;
+            // Reset timer based on whether sprinting or walking
+            footstepTimer = isSprinting ? sprintStepInterval : walkStepInterval;
+            
+            // Play appropriate sound
+            if (audioSource != null)
+            {
+                // Vary pitch slightly for more natural footsteps
+                audioSource.pitch = Random.Range(0.9f, 1.1f);
+                
+                if (isSprinting && sprintSound != null)
+                {
+                    audioSource.PlayOneShot(sprintSound, footstepVolume);
+                    GenerateSound(); // Alert enemies when sprinting
+                }
+                else if (walkSound != null)
+                {
+                    audioSource.PlayOneShot(walkSound, footstepVolume);
+                }
+            }
         }
     }
 
-    private void Jump()
-    {
-        // Adds force to the player rigidbody to jump
-        if (isGrounded)
-        {
-            rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
-            isGrounded = false;
-        }
+    // private void Crouch()
+    // {
+    //     // Stands player up to full height
+    //     // Brings walkSpeed back up to original speed
+    //     if(isCrouched)
+    //     {
+    //         transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
+    //         walkSpeed /= speedReduction;
 
-        // When crouched and using toggle system, will uncrouch for a jump
-        if(isCrouched && !holdToCrouch)
-        {
-            Crouch();
-        }
-    }
+    //         isCrouched = false;
+    //     }
+    //     // Crouches player down to set height
+    //     // Reduces walkSpeed
+    //     else
+    //     {
+    //         transform.localScale = new Vector3(originalScale.x, crouchHeight, originalScale.z);
+    //         walkSpeed *= speedReduction;
 
-    private void Crouch()
-    {
-        // Stands player up to full height
-        // Brings walkSpeed back up to original speed
-        if(isCrouched)
-        {
-            transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
-            walkSpeed /= speedReduction;
-
-            isCrouched = false;
-        }
-        // Crouches player down to set height
-        // Reduces walkSpeed
-        else
-        {
-            transform.localScale = new Vector3(originalScale.x, crouchHeight, originalScale.z);
-            walkSpeed *= speedReduction;
-
-            isCrouched = true;
-        }
-    }
+    //         isCrouched = true;
+    //     }
+    // }
 
     private void HeadBob()
     {
@@ -508,10 +575,10 @@ public class FirstPersonController : MonoBehaviour
                 timer += Time.deltaTime * (bobSpeed + sprintSpeed);
             }
             // Calculates HeadBob speed during crouched movement
-            else if (isCrouched)
-            {
-                timer += Time.deltaTime * (bobSpeed * speedReduction);
-            }
+            // else if (isCrouched)
+            // {
+            //     timer += Time.deltaTime * (bobSpeed * speedReduction);
+            // }
             // Calculates HeadBob speed during walking
             else
             {
@@ -688,37 +755,52 @@ public class FirstPersonController : MonoBehaviour
 
         #endregion
 
-        #region Jump
+        // #region Jump
 
-        GUILayout.Label("Jump", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
+        // GUILayout.Label("Jump", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
 
-        fpc.enableJump = EditorGUILayout.ToggleLeft(new GUIContent("Enable Jump", "Determines if the player is allowed to jump."), fpc.enableJump);
+        // fpc.enableJump = EditorGUILayout.ToggleLeft(new GUIContent("Enable Jump", "Determines if the player is allowed to jump."), fpc.enableJump);
 
-        GUI.enabled = fpc.enableJump;
-        fpc.jumpKey = (KeyCode)EditorGUILayout.EnumPopup(new GUIContent("Jump Key", "Determines what key is used to jump."), fpc.jumpKey);
-        fpc.jumpPower = EditorGUILayout.Slider(new GUIContent("Jump Power", "Determines how high the player will jump."), fpc.jumpPower, .1f, 20f);
-        GUI.enabled = true;
+        // GUI.enabled = fpc.enableJump;
+        // fpc.jumpKey = (KeyCode)EditorGUILayout.EnumPopup(new GUIContent("Jump Key", "Determines what key is used to jump."), fpc.jumpKey);
+        // fpc.jumpPower = EditorGUILayout.Slider(new GUIContent("Jump Power", "Determines how high the player will jump."), fpc.jumpPower, .1f, 20f);
+        // GUI.enabled = true;
 
-        EditorGUILayout.Space();
+        // EditorGUILayout.Space();
+
+        // #endregion
+
+        // #region Crouch
+
+        // GUILayout.Label("Crouch", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
+
+        // fpc.enableCrouch = EditorGUILayout.ToggleLeft(new GUIContent("Enable Crouch", "Determines if the player is allowed to crouch."), fpc.enableCrouch);
+
+        // GUI.enabled = fpc.enableCrouch;
+        // fpc.holdToCrouch = EditorGUILayout.ToggleLeft(new GUIContent("Hold To Crouch", "Requires the player to hold the crouch key instead if pressing to crouch and uncrouch."), fpc.holdToCrouch);
+        // fpc.crouchKey = (KeyCode)EditorGUILayout.EnumPopup(new GUIContent("Crouch Key", "Determines what key is used to crouch."), fpc.crouchKey);
+        // fpc.crouchHeight = EditorGUILayout.Slider(new GUIContent("Crouch Height", "Determines the y scale of the player object when crouched."), fpc.crouchHeight, .1f, 1);
+        // fpc.speedReduction = EditorGUILayout.Slider(new GUIContent("Speed Reduction", "Determines the percent 'Walk Speed' is reduced by. 1 being no reduction, and .5 being half."), fpc.speedReduction, .1f, 1);
+        // GUI.enabled = true;
+
+        // #endregion
 
         #endregion
 
-        #region Crouch
-
-        GUILayout.Label("Crouch", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
-
-        fpc.enableCrouch = EditorGUILayout.ToggleLeft(new GUIContent("Enable Crouch", "Determines if the player is allowed to crouch."), fpc.enableCrouch);
-
-        GUI.enabled = fpc.enableCrouch;
-        fpc.holdToCrouch = EditorGUILayout.ToggleLeft(new GUIContent("Hold To Crouch", "Requires the player to hold the crouch key instead if pressing to crouch and uncrouch."), fpc.holdToCrouch);
-        fpc.crouchKey = (KeyCode)EditorGUILayout.EnumPopup(new GUIContent("Crouch Key", "Determines what key is used to crouch."), fpc.crouchKey);
-        fpc.crouchHeight = EditorGUILayout.Slider(new GUIContent("Crouch Height", "Determines the y scale of the player object when crouched."), fpc.crouchHeight, .1f, 1);
-        fpc.speedReduction = EditorGUILayout.Slider(new GUIContent("Speed Reduction", "Determines the percent 'Walk Speed' is reduced by. 1 being no reduction, and .5 being half."), fpc.speedReduction, .1f, 1);
-        GUI.enabled = true;
-
-        #endregion
-
-        #endregion
+        #region Audio Setup
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+            GUILayout.Label("Audio Setup", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
+            EditorGUILayout.Space();
+            
+            fpc.audioSource = (AudioSource)EditorGUILayout.ObjectField(new GUIContent("Audio Source", "The audio source that will play the footstep sounds."), fpc.audioSource, typeof(AudioSource), true);
+            fpc.walkSound = (AudioClip)EditorGUILayout.ObjectField(new GUIContent("Walk Sound", "Sound that plays while walking."), fpc.walkSound, typeof(AudioClip), false);
+            fpc.sprintSound = (AudioClip)EditorGUILayout.ObjectField(new GUIContent("Sprint Sound", "Sound that plays while sprinting."), fpc.sprintSound, typeof(AudioClip), false);
+            
+            fpc.footstepVolume = EditorGUILayout.Slider(new GUIContent("Footstep Volume", "Volume of the footstep sounds."), fpc.footstepVolume, 0f, 1f);
+            fpc.walkStepInterval = EditorGUILayout.Slider(new GUIContent("Walk Step Interval", "Time between footstep sounds when walking."), fpc.walkStepInterval, 0.1f, 2f);
+            fpc.sprintStepInterval = EditorGUILayout.Slider(new GUIContent("Sprint Step Interval", "Time between footstep sounds when sprinting."), fpc.sprintStepInterval, 0.1f, 1f);
+            #endregion
 
         #region Head Bob
 

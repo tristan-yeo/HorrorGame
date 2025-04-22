@@ -120,7 +120,7 @@ public class TakePicture : MonoBehaviour
             }
         }
     }
-
+    
     private IEnumerator FlashBloom()
     {
         // jump to the high-intensity bloom

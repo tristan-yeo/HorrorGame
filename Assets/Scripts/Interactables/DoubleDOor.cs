@@ -12,7 +12,8 @@ public class DoubleDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            door.Play("DoorOpen", 0, 0.0f);
+                door.Play("DoorOpen", 0, 0.0f);
+                PlayDoorSound();
         }
     }
 
@@ -20,26 +21,20 @@ public class DoubleDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            door.Play("DoorClose", 0, 0.0f);
+                door.Play("DoorClose", 0, 0.0f);
+                PlayDoorCloseSound();
         }
     }
 
     public void PlayDoorSound()
     {
         if (audioSource != null && doorSound != null)
-        {
             audioSource.PlayOneShot(doorSound);
-        }
     }
 
     public void PlayDoorCloseSound()
     {
         if (audioSource != null && doorCloseSound != null)
-        {
             audioSource.PlayOneShot(doorCloseSound);
-        }
     }
-
-
-
 }

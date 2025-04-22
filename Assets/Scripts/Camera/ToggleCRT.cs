@@ -52,7 +52,10 @@ public class ToggleCRT : MonoBehaviour
             if (newState)
             {
                 if (toggleOnSound != null)
+                {
                     toggleOnSound.Play();
+                    GenerateSound(); // alert enemy
+                }
                 else
                     Debug.LogWarning("ToggleCRT: toggleOnSound AudioSource not assigned!");
             }
@@ -77,5 +80,14 @@ public class ToggleCRT : MonoBehaviour
     public bool IsCameraOn()
     {
         return fullScreenFeature != null && fullScreenFeature.isActive;
+    }
+
+    void GenerateSound()
+    {
+        EnemyAI enemy = FindObjectOfType<EnemyAI>();
+        if (enemy != null)
+        {
+            enemy.HearSound(transform.position);
+        }
     }
 }

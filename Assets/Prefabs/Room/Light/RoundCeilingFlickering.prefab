@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointLight: {fileID: 7956449584967675397}
+  lightbulbLight: {fileID: 8373900846483258489}
   audioSource: {fileID: 5257456173992391291}
   minOnTime: 1
   maxOnTime: 5

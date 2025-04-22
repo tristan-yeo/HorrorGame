@@ -4,9 +4,10 @@ using UnityEngine;
 public class LightFlickerController : MonoBehaviour
 {
     public Light pointLight;
+    public Light lightbulbLight;
     public AudioSource audioSource;
     public float minOnTime = 1f;
-    public float maxOnTime = 5f;
+    public float maxOnTime = 4f;
     public float minFlickerTime = 1f;
     public float maxFlickerTime = 5f;
     public float minFlickerInterval = 0.05f;
@@ -27,7 +28,7 @@ public class LightFlickerController : MonoBehaviour
         {
             // Light stays ON for a random duration
             float onTime = Random.Range(minOnTime, maxOnTime);
-            pointLight.enabled = true;
+            SetLightsState(true);
             StartCoroutine(FadeAudio(1f));
             yield return new WaitForSeconds(onTime);
             
@@ -37,7 +38,7 @@ public class LightFlickerController : MonoBehaviour
             while (elapsedTime < flickerTime)
             {
                 bool isOn = !pointLight.enabled;
-                pointLight.enabled = isOn;
+                SetLightsState(isOn);
                 
                 // Control sound based on light state
                 StartCoroutine(FadeAudio(isOn ? 1f : 0f));
@@ -47,10 +48,16 @@ public class LightFlickerController : MonoBehaviour
                 yield return new WaitForSeconds(currentFlickerInterval);
             }
             
-            // Ensure the light stays on after flickering
-            pointLight.enabled = true;
+            // Ensure the lights stay on after flickering
+            SetLightsState(true);
             StartCoroutine(FadeAudio(1f));
         }
+    }
+
+    private void SetLightsState(bool isOn)
+    {
+        pointLight.enabled = isOn;
+        lightbulbLight.enabled = isOn;
     }
 
     private IEnumerator FadeAudio(float targetVolume)

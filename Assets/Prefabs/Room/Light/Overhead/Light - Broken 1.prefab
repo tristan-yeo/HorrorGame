@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8497142331195769205, guid: 5efa086fb215d485a9b6bd4e294a0b16, type: 3}
+  - {fileID: 2100000, guid: 7bba55bb35b96034a8f42112d2720fde, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3912029208400937764, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      propertyPath: lightbulbLight
+      value: 
+      objectReference: {fileID: 4608957083068607403}
     - target: {fileID: 6893028539695468807, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -215,6 +219,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 853700477719996441}
   m_SourcePrefab: {fileID: 100100000, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+--- !u!108 &4608957083068607403 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+  m_PrefabInstance: {fileID: 2187871222914987019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4709264377192432811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6847241960920543392, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}

@@ -7145,7 +7145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpscareEnemyPrefab: {fileID: 8271330875179320423, guid: 8834db73eee132e4286acafbb70cebe4, type: 3}
-  audioClips: []
+  audioClips:
+  - {fileID: 8300000, guid: 8b9acecabc9b36a4294dad38367cc50d, type: 3}
   jumpscareDuration: 1
   jumpscarePositionOffset: {x: 0, y: 0, z: 0}
   jumpscareRotationOffset: {x: 0, y: 0, z: 0}

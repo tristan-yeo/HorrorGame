@@ -98,7 +98,7 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator ReactToSound()
     {
-        while (!agent.pathPending || agent.remainingDistance > 0.5f)
+        while (agent.pathPending || agent.remainingDistance > 0.5f)
         {
             yield return null;
         }

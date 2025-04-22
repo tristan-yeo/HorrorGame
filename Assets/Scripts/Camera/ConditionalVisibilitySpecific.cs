@@ -9,6 +9,12 @@ public class ConditionalVisibilitySpecific : MonoBehaviour
 
     void Awake()
     {
+        if (toggleCRT == null)
+        {
+            Camera mainCam = Camera.main;
+            if (mainCam != null)
+                toggleCRT = mainCam.GetComponent<ToggleCRT>();
+        }
         // Grab everything in this GameObject & its children
         objectRenderers = GetComponentsInChildren<Renderer>(true);
         objectColliders = GetComponentsInChildren<Collider>(true);

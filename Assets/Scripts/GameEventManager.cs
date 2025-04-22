@@ -13,11 +13,12 @@ public class GameEventManager : MonoBehaviour
     public GameState currentState = GameState.Explore;
 
     [Header("Game Object References")]
-    public EnemyAI kuntilanakAI;
+    public GameObject kuntilanak;
     public GameObject cryingBaby;
     public GameObject wallBlocker;
     public GameObject doorObject;
     public GameObject player;
+    private BoxCollider kuntilanakCollider;
 
     [Header("UI References")]
     public TMP_Text objectiveText;
@@ -36,8 +37,14 @@ public class GameEventManager : MonoBehaviour
         wallBlocker.SetActive(false);
         previousState = currentState;
 
-        if (kuntilanakAI != null)
-            kuntilanakAI.enabled = false;
+        if (kuntilanak != null)
+        {
+            kuntilanakCollider = kuntilanak.GetComponent<BoxCollider>();
+            kuntilanak.SetActive(false);
+
+            if (kuntilanakCollider != null)
+                kuntilanakCollider.enabled = false;
+        }
 
         // Set initial objective text
         UpdateObjectiveText();
@@ -60,12 +67,17 @@ public class GameEventManager : MonoBehaviour
 
             case GameState.BabyDiscovered:
                 // entity becomes aggressive
-                if (kuntilanakAI != null)
+                if (kuntilanak != null && !kuntilanak.activeSelf)
                 {
-                    kuntilanakAI.enabled = true;
+                    kuntilanak.SetActive(true);
+
+                    if (kuntilanakCollider != null)
+                        kuntilanakCollider.enabled = true;
+
                     Debug.Log("Entity is enabled.");
                 }
                 break;
+
 
             case GameState.ToyReturned:
                 // Escape enabled

@@ -36756,8 +36756,9 @@ MonoBehaviour:
   cryingBaby: {fileID: 863530273}
   wallBlocker: {fileID: 2007777372}
   doorObject: {fileID: 11957707}
-  player: {fileID: 0}
+  player: {fileID: 707988044}
   objectiveText: {fileID: 1318932795}
+  spawnObjective: enter the hospital.. at your own risk
   exploreObjective: explore and find something spooky
   babyDiscoveredObjective: make baby stfu.. find the baby's toy
   toyReturnedObjective: escape from kunti n get out
@@ -37218,6 +37219,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
+--- !u!82 &528719512 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6636408048137435265, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
+  m_PrefabInstance: {fileID: 528719511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &528719513 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1240550648216206511, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
+  m_PrefabInstance: {fileID: 528719511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &529625515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73217,6 +73228,31 @@ Transform:
 --- !u!4 &1054623890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6860474569256011008, guid: 5b9dad66f0170410e80437ffe9d875a4, type: 3}
+  m_PrefabInstance: {fileID: 1651133231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1054623891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11957707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f256e7f8e3748b182e2614f9bd1d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 528719513}
+  audioSource: {fileID: 528719512}
+  doorSound: {fileID: 8300000, guid: 76f7c43229b4d4ec091e5d7c88d063a9, type: 3}
+  doorCloseSound: {fileID: 8300000, guid: 8e95f6828dbb64f94846e71a50a9146d, type: 3}
+  isEntranceDoor: 1
+  lockAfterEnter: 1
+  doorCollider: {fileID: 1054623892}
+  eventManager: {fileID: 523561158}
+--- !u!65 &1054623892 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6614581096198699577, guid: 5b9dad66f0170410e80437ffe9d875a4, type: 3}
   m_PrefabInstance: {fileID: 1651133231}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1054637576
@@ -115515,6 +115551,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 333895578}
     m_Modifications:
+    - target: {fileID: 6614581096198699577, guid: 5b9dad66f0170410e80437ffe9d875a4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6860474569256011008, guid: 5b9dad66f0170410e80437ffe9d875a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.2700005
@@ -115562,7 +115602,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8304411767156601418, guid: 5b9dad66f0170410e80437ffe9d875a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1054623891}
   m_SourcePrefab: {fileID: 100100000, guid: 5b9dad66f0170410e80437ffe9d875a4, type: 3}
 --- !u!4 &1651186316 stripped
 Transform:

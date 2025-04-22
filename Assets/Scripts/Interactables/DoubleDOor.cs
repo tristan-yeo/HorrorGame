@@ -7,20 +7,47 @@ public class DoubleDoor : MonoBehaviour
     [SerializeField] private AudioClip doorSound;
     [SerializeField] private AudioClip doorCloseSound;
 
+    [Header("Lockable Door Logic")]
+    public bool isEntranceDoor = false;
+    public bool lockAfterEnter = false;
+    private bool isLocked = false;
+
+    [Header("Door Collision Control")]
+    [SerializeField] private Collider doorCollider;
+
+    public GameEventManager eventManager;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isLocked) return;
+
         if (other.CompareTag("Player"))
         {
             door.Play("DoorOpen", 0, 0.0f);
+
+            // player entering hosp
+            if (isEntranceDoor && eventManager != null && eventManager.currentState == GameEventManager.GameState.Spawn)
+            {
+                eventManager.currentState = GameEventManager.GameState.Explore;
+                Debug.Log("Player entered hospital — state changed to Explore.");
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (isLocked) return;
+
         if (other.CompareTag("Player"))
         {
             door.Play("DoorClose", 0, 0.0f);
+            if (isEntranceDoor && lockAfterEnter)
+            {
+                isLocked = true;
+                Debug.Log("Entrance door locked behind player.");
+                if (doorCollider != null)
+                    doorCollider.isTrigger = false;
+            }
         }
     }
 

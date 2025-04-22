@@ -38018,7 +38018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  kuntilanakAI: {fileID: 2016511142}
+  kuntilanak: {fileID: 0}
   cryingBaby: {fileID: 863530273}
   wallBlocker: {fileID: 2007777372}
   doorObject: {fileID: 11957707}
@@ -38435,6 +38435,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 234051086}
     m_Modifications:
+    - target: {fileID: 5842859302614832230, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6598974024216497523, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
       propertyPath: m_Name
       value: DoubleDoor (1)
@@ -72920,6 +72924,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4935668093594599284, guid: cccc23be4bdb7432382cbde3c36531ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82979,6 +82987,10 @@ PrefabInstance:
     - target: {fileID: 3600963653984511316, guid: cccc23be4bdb7432382cbde3c36531ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935668093594599284, guid: cccc23be4bdb7432382cbde3c36531ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -105909,6 +105921,10 @@ PrefabInstance:
     - target: {fileID: 3600963653984511316, guid: cccc23be4bdb7432382cbde3c36531ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935668093594599284, guid: cccc23be4bdb7432382cbde3c36531ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -132257,6 +132273,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4935668093594599284, guid: cccc23be4bdb7432382cbde3c36531ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -145900,17 +145920,6 @@ Transform:
   - {fileID: 1759564215}
   m_Father: {fileID: 1205040195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2016511142 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7267076400121644563, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
-  m_PrefabInstance: {fileID: 571995990}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5519161f0a571e24fa0fd85ed68b0b8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2016579665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 490584, guid: b0f7abaadca23ea4d910efe028624076, type: 3}
@@ -146822,6 +146831,10 @@ PrefabInstance:
     - target: {fileID: 3600963653984511316, guid: cccc23be4bdb7432382cbde3c36531ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935668093594599284, guid: cccc23be4bdb7432382cbde3c36531ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

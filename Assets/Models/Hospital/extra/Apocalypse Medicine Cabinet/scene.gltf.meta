@@ -1,0 +1,81 @@
+fileFormatVersion: 2
+guid: 5123e286c2fa24a2fb8f683314ca3a4e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 1
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 0
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 0
+  _texturesReadWriteEnabled: 1
+  _generateMipMaps: 1
+  _useSceneNameIdentifier: 1
+  _textureCompression: -50
+  _gltfAsset: '<b>Generator: </b>Sketchfab-12.66.0
+
+    <b>Version: </b>2.0
+
+
+    <b>Extras:
+    </b>
+
+    "author": "James Penman (https://sketchfab.com/fallenlemon)"
+
+    "license":
+    "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)"
+
+    "source": "https://sketchfab.com/3d-models/old-medicine-cabinet-9a092f5d0f3a4373a21fe30bafbe5488"
+
+    "title":
+    "Old Medicine Cabinet"
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {instanceID: 0}
+  textures:
+  - {fileID: 2800000, guid: 6540a5ad6021c4fdcaba8c6dca682c15, type: 3}
+  - {fileID: 2800000, guid: 0c68304e5f8d343a0a976ca09054b337, type: 3}
+  - {fileID: 2800000, guid: 3b3fd0ec4f82141bbb841da1cdda28c6, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 1
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations:
+  - name: Scene
+  _extensions: []
+  _textures:
+  - texture: {fileID: 2800000, guid: 6540a5ad6021c4fdcaba8c6dca682c15, type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 0c68304e5f8d343a0a976ca09054b337, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2800000, guid: 3b3fd0ec4f82141bbb841da1cdda28c6, type: 3}
+    shouldBeLinear: 1
+    shouldBeNormalMap: 1
+  _mainAssetIdentifier: scenes/Sketchfab_Scene
+  _importPlugins: []

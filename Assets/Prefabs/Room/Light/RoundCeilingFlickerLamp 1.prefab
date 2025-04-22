@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5764767679881406671}
+  - component: {fileID: 5924680778414545274}
   m_Layer: 0
-  m_Name: RoundCeilingLamp
+  m_Name: RoundCeilingFlickerLamp 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +36,31 @@ Transform:
   - {fileID: 6769745696580676793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5924680778414545274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165385603086896696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5b7dd0a8b39b047be000106cf9f613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointLight: {fileID: 7956449584967675397}
+  secondaryBulbLight: {fileID: 8373900846483258489}
+  audioSource: {fileID: 0}
+  bulbRenderer: {fileID: 618961659424131950}
+  minOnTime: 1
+  maxOnTime: 5
+  minFlickerTime: 1
+  maxFlickerTime: 5
+  minFlickerInterval: 0.05
+  maxFlickerInterval: 0.2
+  fadeSpeed: 2
+  dimEmissionMultiplier: 0.2
+  dimLightIntensityMultiplier: 0.2
 --- !u!1 &238584251926479142
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 238584251926479142}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: -0.84595245, z: 0}
+  m_LocalPosition: {x: -0, y: -1.78, z: 0}
   m_LocalScale: {x: 15.239655, y: 15.239655, z: 15.239655}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -133,7 +159,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 0.92156863, a: 1}
   m_Intensity: 0.4
-  m_Range: 2
+  m_Range: 0.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -232,7 +258,7 @@ Transform:
   m_GameObject: {fileID: 3194541153540202273}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.1, y: -0, z: 3.9}
+  m_LocalPosition: {x: -0.1, y: -0.44, z: -0.44}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -466,8 +492,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -3934430235967861785, guid: 277f99d02776043d2bc1c2a2aa133fd0, type: 3}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

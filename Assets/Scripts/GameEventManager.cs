@@ -5,6 +5,7 @@ public class GameEventManager : MonoBehaviour
 {
     public enum GameState
     {
+        Spawn, // initial state of player
         Explore,
         BabyDiscovered,
         ToyReturned

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8497142331195769205, guid: 5efa086fb215d485a9b6bd4e294a0b16, type: 3}
+  - {fileID: 2100000, guid: 67ecd7e61b66749df8b5fbca88e15b45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,16 +124,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      propertyPath: m_Range
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      propertyPath: m_Intensity
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       propertyPath: m_SpotAngle
-      value: 109
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       propertyPath: m_Lightmapping
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2425944060875677600, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       propertyPath: m_Shadows.m_Bias
@@ -151,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3912029208400937764, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      propertyPath: bulbRenderer
+      value: 
+      objectReference: {fileID: 2974336616275398678}
     - target: {fileID: 6893028539695468807, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -198,8 +214,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6893028539695468807, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
       insertIndex: 1
       addedObject: {fileID: 650311834504678689}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6847241960920543392, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5367657804046723462}
   m_SourcePrefab: {fileID: 100100000, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+--- !u!1 &4709264377192432811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6847241960920543392, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}
+  m_PrefabInstance: {fileID: 2187871222914987019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5367657804046723462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709264377192432811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!4 &4752447311891145996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6893028539695468807, guid: 4843ee4a958e6453192fd1c6bdbea465, type: 3}

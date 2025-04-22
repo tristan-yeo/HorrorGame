@@ -534,6 +534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light - 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7664653990870439470, guid: 78c6c23257aa9416ca3bda2795b7c315, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67ecd7e61b66749df8b5fbca88e15b45, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

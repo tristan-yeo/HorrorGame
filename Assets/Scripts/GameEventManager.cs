@@ -5,6 +5,7 @@ public class GameEventManager : MonoBehaviour
 {
     public enum GameState
     {
+        Spawn, // initial state of player
         Explore,
         BabyDiscovered,
         ToyReturned
@@ -25,6 +26,7 @@ public class GameEventManager : MonoBehaviour
 
     // Objective text for each state
     [Header("Objective Text")]
+    [TextArea] public string spawnObjective = "enter the hospital.. at your own risk";
     [TextArea] public string exploreObjective = "explore the house and find something spooky";
     [TextArea] public string babyDiscoveredObjective = "make baby stfu.. find the baby's toy in the room the baby died in";
     [TextArea] public string toyReturnedObjective = "escape from kunti";
@@ -61,6 +63,9 @@ public class GameEventManager : MonoBehaviour
 
         switch (currentState)
         {
+            case GameState.Spawn:
+                break;
+
             case GameState.Explore:
                 // passive state – waiting for player to take photo of baby
                 break;
@@ -92,6 +97,10 @@ public class GameEventManager : MonoBehaviour
 
         switch (currentState)
         {
+            case GameState.Spawn:
+                objectiveText.text = spawnObjective;
+                break;
+
             case GameState.Explore:
                 objectiveText.text = exploreObjective;
                 break;

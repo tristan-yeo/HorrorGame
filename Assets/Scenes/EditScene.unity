@@ -29551,6 +29551,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0f7abaadca23ea4d910efe028624076, type: 3}
+--- !u!1 &425120363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7367150102209350089, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
+  m_PrefabInstance: {fileID: 702406628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &425962862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1185474517654208444, guid: 657a3c5ad1f184d18aeca170317abcad, type: 3}
@@ -38063,15 +38068,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  kuntilanak: {fileID: 0}
+  kuntilanak: {fileID: 425120363}
   cryingBaby: {fileID: 863530273}
   wallBlocker: {fileID: 2007777372}
   doorObject: {fileID: 11957707}
-  player: {fileID: 0}
+  player: {fileID: 707988044}
   objectiveText: {fileID: 1318932795}
-  exploreObjective: explore and find something spooky
-  babyDiscoveredObjective: make baby stfu.. find the baby's toy
-  toyReturnedObjective: escape from kunti n get out
+  exploreObjective: lets get some ghosty pic
+  babyDiscoveredObjective: make the baby quiet find its little toy
+  toyReturnedObjective: 'get out! '
 --- !u!4 &523561159
 Transform:
   m_ObjectHideFlags: 0
@@ -156141,6 +156146,6 @@ SceneRoots:
   - {fileID: 270027307}
   - {fileID: 177560292}
   - {fileID: 1183947685}
+  - {fileID: 702406628}
   - {fileID: 509859805}
   - {fileID: 1278769217}
-  - {fileID: 702406628}

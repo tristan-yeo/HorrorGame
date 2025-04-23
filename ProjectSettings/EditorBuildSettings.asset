@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Escaped.unity
     guid: 4354c0962ffe7ac4a94bc45911d30258
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: e136eb89f375c39479dd1244148ee2f6
   m_configObjects: {}

@@ -50984,6 +50984,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 234051086}
     m_Modifications:
+    - target: {fileID: -2967838189436819446, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
+      propertyPath: bloodPoolPrefab
+      value: 
+      objectReference: {fileID: 1655613960076236, guid: bba70c5c97b95774c9a05e2791e21508, type: 3}
+    - target: {fileID: -2967838189436819446, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
+      propertyPath: sceneController
+      value: 
+      objectReference: {fileID: 1297221043}
     - target: {fileID: 714598907552229953, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
       propertyPath: m_LocalPosition.x
       value: 83.23849

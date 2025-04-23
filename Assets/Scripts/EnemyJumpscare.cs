@@ -14,6 +14,9 @@ public class EnemyJumpscare : MonoBehaviour
 
     private bool hasTriggered = false;
 
+    [SerializeField] private SceneController sceneController;
+    [SerializeField] private string deathSceneName = "Death"; 
+
     void OnTriggerEnter (Collider other)
     {
         if (hasTriggered) return;
@@ -126,5 +129,13 @@ public class EnemyJumpscare : MonoBehaviour
 
         // Optional: End game, reload scene, fade out, etc.
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (sceneController != null)
+        {
+            sceneController.LoadScene(deathSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("SceneController not assigned.");
+        }
     }
 }

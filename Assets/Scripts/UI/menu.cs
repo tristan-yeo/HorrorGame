@@ -17,6 +17,8 @@ public class menu : MonoBehaviour
     }
     public void Escaped()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(escapeSceneName);
     }
     public void Restart()

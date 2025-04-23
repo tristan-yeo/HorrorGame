@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Add this for TextMeshPro
-using System.Collections;
 
 public class GameEventManager : MonoBehaviour
 {

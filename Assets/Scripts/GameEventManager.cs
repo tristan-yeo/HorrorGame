@@ -38,10 +38,13 @@ public class GameEventManager : MonoBehaviour
 
     [TextArea] public string spawnObjective = "Press 'C' to use your paranormal camera";
     [TextArea] public string exploreObjective = "Take pictures of some paranormal content";
+    [TextArea] public string findBabyObjective = "Find the source of the crying";
     [TextArea] public string babyDiscoveredObjective = "Soothe the baby with something";
     [TextArea] public string toyReturnedObjective = "Run";
 
     private GameState previousState; // To track state changes
+    private float exploreTimer = 0f; // Timer for explore state
+    private bool exploreTextUpdated = false; // Flag to track if explore text has been updated
 
     void Start()
     {
@@ -82,6 +85,30 @@ public class GameEventManager : MonoBehaviour
         {
             previousState = currentState;
             UpdateObjectiveText(); // Update text when state changes
+            
+            // Reset explore timer when entering explore state
+            if (currentState == GameState.Explore)
+            {
+                exploreTimer = 0f;
+                exploreTextUpdated = false;
+            }
+        }
+
+        // Update explore timer if in explore state
+        if (currentState == GameState.Explore && !exploreTextUpdated)
+        {
+            exploreTimer += Time.deltaTime;
+            
+            // After 3 minutes (180 seconds), update objective text
+            if (exploreTimer >= 180f)
+            {
+                if (objectiveText != null)
+                {
+                    objectiveText.text = findBabyObjective;
+                    exploreTextUpdated = true;
+                    Debug.Log("Objective updated to: Find the baby");
+                }
+            }
         }
 
         switch (currentState)
@@ -152,6 +179,21 @@ public class GameEventManager : MonoBehaviour
 
         if (doorObject != null)
             doorObject.SetActive(false);
+            
+        // // Despawn all children of blockers
+        // Debug.Log("Despawning blockers");
+        // Debug.Log("Blockers: " + blockers);
+        // Debug.Log("Blockers count: " + blockers.transform.childCount);
+        // if (blockers != null)
+        // {
+        //     for (int i = 0; i < blockers.transform.childCount; i++)
+        //     {
+        //         Debug.Log("Despawning blocker: " + i);
+        //         Transform child = blockers.transform.GetChild(i);
+        //         child.gameObject.SetActive(false);
+        //         Debug.Log("Despawned blocker: " + child.name);
+        //     }
+        // }
             
         // Handle crying baby audio sources
         if (cryingBaby != null)

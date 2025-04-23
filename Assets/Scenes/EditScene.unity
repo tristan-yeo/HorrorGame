@@ -13326,7 +13326,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -17654,7 +17654,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7367150102209350089, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1038550338}
   m_SourcePrefab: {fileID: 100100000, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
 --- !u!4 &267312338 stripped
 Transform:
@@ -36691,7 +36694,7 @@ MonoBehaviour:
   cryingBaby: {fileID: 863530273}
   wallBlocker: {fileID: 2007777372}
   doorObject: {fileID: 11957707}
-  player: {fileID: 0}
+  player: {fileID: 707988044}
   objectiveText: {fileID: 1318932795}
   exploreObjective: explore and find something spooky
   babyDiscoveredObjective: make baby stfu.. find the baby's toy
@@ -37104,9 +37107,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 234051086}
     m_Modifications:
+    - target: {fileID: 5842859302614832230, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6598974024216497523, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
       propertyPath: m_Name
       value: DoubleDoor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598974024216497523, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8984110370099827947, guid: 979f22ac482844278bfc8a82a5e61425, type: 3}
       propertyPath: m_LocalPosition.x
@@ -72394,6 +72405,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7367150102209350089, guid: 7dcbacab4d5319745bf17381fa656308, type: 3}
   m_PrefabInstance: {fileID: 265597367}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1038550338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038550327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0357fbfd387b3864194cb2d853d622de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 2c38d9b944dd13f438b21b5abad8f55b, type: 3}
+  - {fileID: 8300000, guid: d1238ae08836bd44e87fe72878381703, type: 3}
+  minInterval: 3
+  maxInterval: 6
 --- !u!1001 &1038972647
 PrefabInstance:
   m_ObjectHideFlags: 0

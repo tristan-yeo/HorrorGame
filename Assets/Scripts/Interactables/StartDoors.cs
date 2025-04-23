@@ -66,7 +66,8 @@ public class StartDoors : MonoBehaviour
         if (isLocked || isOpen) return;
 
         Debug.Log("Opening door");
-        door.Play("DoorOpen", 0, 0.0f);
+        // door.Play("DoorOpen", 0, 0.0f);
+        door.SetBool("Open", true);
         PlayDoorSound();
         isOpen = true;
         

@@ -6,14 +6,9 @@ public class Doors : MonoBehaviour
 {
     public Animator door;
     public GameObject openText;
-
     public AudioSource doorSound;
-
-
     public bool inReach;
-
-
-
+    private bool isDoorOpen = false;
 
     void Start()
     {
@@ -38,33 +33,30 @@ public class Doors : MonoBehaviour
         }
     }
 
-
-
-
-
     void Update()
     {
-
         if (inReach && Input.GetButtonDown("Interact"))
         {
-            DoorOpens();
+            // Toggle door state
+            isDoorOpen = !isDoorOpen;
+
+            if (isDoorOpen)
+            {
+                DoorOpens();
+            }
+            else
+            {
+                DoorCloses();
+            }
         }
-
-        else
-        {
-            DoorCloses();
-        }
-
-
-
-
     }
-    void DoorOpens ()
+
+    void DoorOpens()
     {
         // Debug.Log("It Opens");
         door.SetBool("Open", true);
         door.SetBool("Closed", false);
-        doorSound.Play();
+        doorSound.Play(); // TRISTAN TODO
 
     }
 

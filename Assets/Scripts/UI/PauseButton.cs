@@ -70,15 +70,10 @@ public class pauseButton : MonoBehaviour
             bloom.intensity.value = isPaused ? pausedBloomIntensity : normalBloomIntensity;
 
     }
-    public void OnButtonClick()
-    {
-        Debug.Log("Button UI click detected!");
-        TogglePause();
-    }
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Escape) && isPaused) || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
         }

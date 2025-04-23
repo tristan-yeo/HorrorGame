@@ -27,6 +27,7 @@ public class GameEventManager : MonoBehaviour
     [Header("Audio References")]
     [SerializeField] private AudioSource whatTheHell;
     [SerializeField] private AudioSource shutThatBabyUp;
+    [SerializeField] private AudioSource toyReturnedSound;
     
     [Header("Door Control")]
     [SerializeField] private StartDoors entranceDoor;
@@ -35,12 +36,10 @@ public class GameEventManager : MonoBehaviour
     [Header("UI References")]
     public TMP_Text objectiveText;
 
-    // Objective text for each state
-    [Header("Objective Text")]
-    [TextArea] public string spawnObjective = "enter the hospital.. at your own risk";
-    [TextArea] public string exploreObjective = "explore the house and find something spooky";
-    [TextArea] public string babyDiscoveredObjective = "make baby stfu.. find the baby's toy in the room the baby died in";
-    [TextArea] public string toyReturnedObjective = "escape from kunti";
+    [TextArea] public string spawnObjective = "Press 'C' to use your paranormal camera";
+    [TextArea] public string exploreObjective = "Take pictures of some paranormal content";
+    [TextArea] public string babyDiscoveredObjective = "Soothe the baby with something";
+    [TextArea] public string toyReturnedObjective = "Run";
 
     private GameState previousState; // To track state changes
 
@@ -166,6 +165,7 @@ public class GameEventManager : MonoBehaviour
                 
                 // Start playing the second audio source
                 audioSources[1].enabled = true;
+                audioSources[1].loop = true;
                 audioSources[1].Play();
                 
                 Debug.Log("Changed baby crying audio");
@@ -210,6 +210,13 @@ public class GameEventManager : MonoBehaviour
 
         if (doorObject != null)
             doorObject.SetActive(true);
+            
+        // Play toy returned sound
+        if (toyReturnedSound != null)
+        {
+            toyReturnedSound.Play();
+            Debug.Log("Playing toy returned sound");
+        }
             
         // Disable all audio sources on the crying baby
         if (cryingBaby != null)

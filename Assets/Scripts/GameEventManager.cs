@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Add this for TextMeshPro
 
@@ -81,6 +83,7 @@ public class GameEventManager : MonoBehaviour
 
                     Debug.Log("Entity is enabled.");
                 }
+                GenerateSound();
                 break;
 
 
@@ -143,5 +146,20 @@ public class GameEventManager : MonoBehaviour
             doorObject.SetActive(true);
 
         //Debug.Log("Toy returned to baby. Door restored. Escape enabled.");
+    }
+
+    void GenerateSound()
+    {
+        EnemyAI enemy = FindObjectOfType<EnemyAI>();
+        if (enemy != null && player != null)
+        {
+            Vector3 soundPosition = player.transform.position;
+            enemy.HearSound(soundPosition);
+            Debug.Log("Enemy has heard sound at player location: " + soundPosition);
+        }
+        else
+        {
+            Debug.LogWarning("Enemy or player reference missing.");
+        }
     }
 }

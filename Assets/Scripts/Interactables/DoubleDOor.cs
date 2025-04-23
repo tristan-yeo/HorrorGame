@@ -28,7 +28,7 @@ public class DoubleDoor : MonoBehaviour
             if (isEntranceDoor && eventManager != null && eventManager.currentState == GameEventManager.GameState.Spawn)
             {
                 eventManager.currentState = GameEventManager.GameState.Explore;
-                Debug.Log("Player entered hospital — state changed to Explore.");
+                Debug.Log("Player entered hospital ï¿½ state changed to Explore.");
             }
         }
     }

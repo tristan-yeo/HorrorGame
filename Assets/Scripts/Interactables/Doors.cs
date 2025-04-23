@@ -56,7 +56,8 @@ public class Doors : MonoBehaviour
         // Debug.Log("It Opens");
         door.SetBool("Open", true);
         door.SetBool("Closed", false);
-        doorSound.Play(); // TRISTAN TODO
+        doorSound.Play();
+        GenerateSound();
 
     }
 
@@ -66,6 +67,13 @@ public class Doors : MonoBehaviour
         door.SetBool("Open", false);
         door.SetBool("Closed", true);
     }
-
+    void GenerateSound()
+    {
+        EnemyAI enemy = FindObjectOfType<EnemyAI>();
+        if (enemy != null)
+        {
+            enemy.HearSound(transform.position);
+        }
+    }
 
 }

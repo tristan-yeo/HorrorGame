@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 5022460681817331684}
   - component: {fileID: 4314566515376032177}
   m_Layer: 0
-  m_Name: Cylinder.001
+  m_Name: Bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

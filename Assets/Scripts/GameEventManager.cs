@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro; // Add this for TextMeshPro
+using System.Collections;
 
 public class GameEventManager : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class GameEventManager : MonoBehaviour
     public GameObject doorObject;
     public GameObject player;
     private BoxCollider kuntilanakCollider;
+    
+    [Header("Door Control")]
+    [SerializeField] private StartDoors entranceDoor;
+    [SerializeField] private float doorTriggerDelay = 1f;
 
     [Header("UI References")]
     public TMP_Text objectiveText;
@@ -50,6 +55,19 @@ public class GameEventManager : MonoBehaviour
 
         // Set initial objective text
         UpdateObjectiveText();
+        
+        // Start the door trigger sequence with a delay
+        if (entranceDoor != null)
+        {
+            StartCoroutine(TriggerDoorAfterDelay());
+        }
+    }
+    
+    private IEnumerator TriggerDoorAfterDelay()
+    {
+        yield return new WaitForSeconds(doorTriggerDelay);
+        entranceDoor.TriggerDoorSequence();
+        Debug.Log("Door sequence triggered after " + doorTriggerDelay + " seconds");
     }
 
     void Update()

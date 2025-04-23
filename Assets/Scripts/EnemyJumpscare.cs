@@ -8,6 +8,7 @@ public class EnemyJumpscare : MonoBehaviour
 {
     public GameObject jumpscareEnemyPrefab;
     public AudioClip[] audioClips;
+    public ToggleCRT toggleCRT;
     public float jumpscareDuration = 1f;
     public Vector3 jumpscarePositionOffset = new Vector3(0, 0, 0);
     public Vector3 jumpscareRotationOffset = new Vector3(0, 0, 0);
@@ -122,6 +123,11 @@ public class EnemyJumpscare : MonoBehaviour
         else
         {
             Debug.LogWarning("Shake script not found on player");
+        }
+
+        if (toggleCRT != null)
+        {
+            toggleCRT.DisableCamera();
         }
 
         // Optional: End game, reload scene, fade out, etc.

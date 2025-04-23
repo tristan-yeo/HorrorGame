@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Add this for TextMeshPro
+using System.Collections;
 
 public class GameEventManager : MonoBehaviour
 {
@@ -22,18 +23,28 @@ public class GameEventManager : MonoBehaviour
     public GameObject doorObject;
     public GameObject player;
     private BoxCollider kuntilanakCollider;
+    
+    [Header("Audio References")]
+    [SerializeField] private AudioSource whatTheHell;
+    [SerializeField] private AudioSource shutThatBabyUp;
+    [SerializeField] private AudioSource toyReturnedSound;
+    
+    [Header("Door Control")]
+    [SerializeField] private StartDoors entranceDoor;
+    [SerializeField] private float doorTriggerDelay = 1f;
 
     [Header("UI References")]
     public TMP_Text objectiveText;
 
-    // Objective text for each state
-    [Header("Objective Text")]
-    [TextArea] public string spawnObjective = "enter the hospital.. at your own risk";
-    [TextArea] public string exploreObjective = "explore the house and find something spooky";
-    [TextArea] public string babyDiscoveredObjective = "make baby stfu.. find the baby's toy in the room the baby died in";
-    [TextArea] public string toyReturnedObjective = "escape from kunti";
+    [TextArea] public string spawnObjective = "Press 'C' to use your paranormal camera";
+    [TextArea] public string exploreObjective = "Take pictures of some paranormal content";
+    [TextArea] public string findBabyObjective = "Find the source of the crying";
+    [TextArea] public string babyDiscoveredObjective = "Soothe the baby with something";
+    [TextArea] public string toyReturnedObjective = "Run";
 
     private GameState previousState; // To track state changes
+    private float exploreTimer = 0f; // Timer for explore state
+    private bool exploreTextUpdated = false; // Flag to track if explore text has been updated
 
     void Start()
     {
@@ -52,6 +63,19 @@ public class GameEventManager : MonoBehaviour
 
         // Set initial objective text
         UpdateObjectiveText();
+        
+        // Start the door trigger sequence with a delay
+        if (entranceDoor != null)
+        {
+            StartCoroutine(TriggerDoorAfterDelay());
+        }
+    }
+    
+    private IEnumerator TriggerDoorAfterDelay()
+    {
+        yield return new WaitForSeconds(doorTriggerDelay);
+        entranceDoor.TriggerDoorSequence();
+        Debug.Log("Door sequence triggered after " + doorTriggerDelay + " seconds");
     }
 
     void Update()
@@ -61,6 +85,30 @@ public class GameEventManager : MonoBehaviour
         {
             previousState = currentState;
             UpdateObjectiveText(); // Update text when state changes
+            
+            // Reset explore timer when entering explore state
+            if (currentState == GameState.Explore)
+            {
+                exploreTimer = 0f;
+                exploreTextUpdated = false;
+            }
+        }
+
+        // Update explore timer if in explore state
+        if (currentState == GameState.Explore && !exploreTextUpdated)
+        {
+            exploreTimer += Time.deltaTime;
+            
+            // After 3 minutes (180 seconds), update objective text
+            if (exploreTimer >= 180f)
+            {
+                if (objectiveText != null)
+                {
+                    objectiveText.text = findBabyObjective;
+                    exploreTextUpdated = true;
+                    Debug.Log("Objective updated to: Find the baby");
+                }
+            }
         }
 
         switch (currentState)
@@ -131,6 +179,66 @@ public class GameEventManager : MonoBehaviour
 
         if (doorObject != null)
             doorObject.SetActive(false);
+            
+        // // Despawn all children of blockers
+        // Debug.Log("Despawning blockers");
+        // Debug.Log("Blockers: " + blockers);
+        // Debug.Log("Blockers count: " + blockers.transform.childCount);
+        // if (blockers != null)
+        // {
+        //     for (int i = 0; i < blockers.transform.childCount; i++)
+        //     {
+        //         Debug.Log("Despawning blocker: " + i);
+        //         Transform child = blockers.transform.GetChild(i);
+        //         child.gameObject.SetActive(false);
+        //         Debug.Log("Despawned blocker: " + child.name);
+        //     }
+        // }
+            
+        // Handle crying baby audio sources
+        if (cryingBaby != null)
+        {
+            AudioSource[] audioSources = cryingBaby.GetComponents<AudioSource>();
+            if (audioSources.Length >= 2)
+            {
+                // Disable the first audio source
+                audioSources[0].Stop();
+                audioSources[0].enabled = false;
+                
+                // Start playing the second audio source
+                audioSources[1].enabled = true;
+                audioSources[1].loop = true;
+                audioSources[1].Play();
+                
+                Debug.Log("Changed baby crying audio");
+            }
+            else
+            {
+                Debug.LogWarning("Crying baby doesn't have enough audio sources.");
+            }
+        }
+        
+        // Play audio sources with delays
+        StartCoroutine(PlayDelayedAudio());
+    }
+    
+    private IEnumerator PlayDelayedAudio()
+    {
+        // Wait 3 seconds before playing whatTheHell
+        yield return new WaitForSeconds(3f);
+        if (whatTheHell != null)
+        {
+            whatTheHell.Play();
+            Debug.Log("Playing 'What the hell' audio");
+        }
+        
+        // Wait another 3 seconds before playing shutThatBabyUp
+        yield return new WaitForSeconds(3f);
+        if (shutThatBabyUp != null)
+        {
+            shutThatBabyUp.Play();
+            Debug.Log("Playing 'Shut that baby up' audio");
+        }
     }
 
     public void OnToyReturned()
@@ -144,6 +252,25 @@ public class GameEventManager : MonoBehaviour
 
         if (doorObject != null)
             doorObject.SetActive(true);
+            
+        // Play toy returned sound
+        if (toyReturnedSound != null)
+        {
+            toyReturnedSound.Play();
+            Debug.Log("Playing toy returned sound");
+        }
+            
+        // Disable all audio sources on the crying baby
+        if (cryingBaby != null)
+        {
+            AudioSource[] audioSources = cryingBaby.GetComponents<AudioSource>();
+            foreach (AudioSource source in audioSources)
+            {
+                source.Stop();
+                source.enabled = false;
+            }
+            Debug.Log("All baby crying audio disabled");
+        }
 
         //Debug.Log("Toy returned to baby. Door restored. Escape enabled.");
     }

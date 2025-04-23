@@ -20,6 +20,10 @@ public class CameraBattery : MonoBehaviour
 
     [Header("Camera Control")]
     [SerializeField] private ToggleCRT toggleCRT;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioSource lowBatteryWarningSound;
+    private bool lowBatteryWarningPlayed = false;
 
     private float timer;
 
@@ -57,6 +61,9 @@ public class CameraBattery : MonoBehaviour
 
         // 3) Always refresh the icon to match current percentage
         UpdateBatteryDisplay();
+        
+        // 4) Check for low battery and play warning sound if needed
+        CheckLowBattery();
     }
 
     private void UpdateBatteryDisplay()
@@ -67,11 +74,23 @@ public class CameraBattery : MonoBehaviour
         else if (batteryPercentage > 0) batteryDisplay.texture = battery25;
         else batteryDisplay.texture = battery0;
     }
+    
+    private void CheckLowBattery()
+    {
+        // Play warning sound when battery drops to 25% or lower
+        if (batteryPercentage <= 25 && !lowBatteryWarningPlayed && lowBatteryWarningSound != null)
+        {
+            lowBatteryWarningSound.Play();
+            lowBatteryWarningPlayed = true;
+            Debug.Log("Low battery warning played at " + batteryPercentage + "%");
+        }
+    }
 
     public void RechargeBattery()
     {
         batteryPercentage = 100;
         timer = 0f;
+        lowBatteryWarningPlayed = false; // Reset warning flag when battery is recharged
         UpdateBatteryDisplay();
 
         if (toggleCRT != null)

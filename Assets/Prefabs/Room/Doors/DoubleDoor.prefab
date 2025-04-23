@@ -122,6 +122,10 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   doorSound: {fileID: 0}
   doorCloseSound: {fileID: 0}
+  isEntranceDoor: 0
+  lockAfterEnter: 0
+  doorCollider: {fileID: 0}
+  eventManager: {fileID: 0}
 --- !u!1 &448367837668856099
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +846,10 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   doorSound: {fileID: 0}
   doorCloseSound: {fileID: 0}
+  isEntranceDoor: 0
+  lockAfterEnter: 0
+  doorCollider: {fileID: 0}
+  eventManager: {fileID: 0}
 --- !u!1 &2563932523528279648
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +861,7 @@ GameObject:
   - component: {fileID: 7777189281718846050}
   - component: {fileID: 4835657774847730037}
   - component: {fileID: 3409499879415348553}
+  - component: {fileID: 8557859321183705657}
   m_Layer: 0
   m_Name: door2_doors_0
   m_TagString: Untagged
@@ -925,6 +934,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8557859321183705657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2563932523528279648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.0352917, y: 232.75903, z: 97.85078}
+  m_Center: {x: -0.000001072884, y: 116.379486, z: -49.44472}
 --- !u!1 &2910580144172908823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,8 +2054,8 @@ GameObject:
   - component: {fileID: 8984110370099827947}
   - component: {fileID: 4980304729630022587}
   - component: {fileID: 1240550648216206511}
-  - component: {fileID: 3901937033084096492}
   - component: {fileID: 6636408048137435265}
+  - component: {fileID: 6398514529690192889}
   m_Layer: 0
   m_Name: DoubleDoor
   m_TagString: Untagged
@@ -2041,7 +2071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6598974024216497523}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -17.71, y: 0.39999986, z: 30.295685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2098,22 +2128,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3901937033084096492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6598974024216497523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f256e7f8e3748b182e2614f9bd1d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 1240550648216206511}
-  audioSource: {fileID: 6636408048137435265}
-  doorSound: {fileID: 8300000, guid: 8e95f6828dbb64f94846e71a50a9146d, type: 3}
-  doorCloseSound: {fileID: 0}
 --- !u!82 &6636408048137435265
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2125,7 +2139,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2210,6 +2224,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6398514529690192889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6598974024216497523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d643d48362a60745a5c17b1b268adb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 1240550648216206511}
+  openText: {fileID: 0}
+  doorSound: {fileID: 6636408048137435265}
+  inReach: 0
 --- !u!1 &6891891627549761999
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,6 +2251,7 @@ GameObject:
   - component: {fileID: 5785164825913010139}
   - component: {fileID: 8622818196953250197}
   - component: {fileID: 8123142747795381625}
+  - component: {fileID: 4994834475020044058}
   m_Layer: 0
   m_Name: door2_doors_0
   m_TagString: Untagged
@@ -2293,6 +2324,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4994834475020044058
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6891891627549761999}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.0352917, y: 232.75903, z: 97.850784}
+  m_Center: {x: -0.0000010728847, y: 116.379486, z: -49.444847}
 --- !u!1 &7391241790412880472
 GameObject:
   m_ObjectHideFlags: 0

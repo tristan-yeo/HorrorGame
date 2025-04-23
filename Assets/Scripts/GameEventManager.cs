@@ -72,15 +72,15 @@ public class GameEventManager : MonoBehaviour
 
             case GameState.BabyDiscovered:
                 // entity becomes aggressive
-                if (kuntilanak != null && !kuntilanak.activeSelf)
-                {
-                    kuntilanak.SetActive(true);
+                //if (kuntilanak != null && !kuntilanak.activeSelf)
+                //{
+                //    kuntilanak.SetActive(true);
 
-                    if (kuntilanakCollider != null)
-                        kuntilanakCollider.enabled = true;
+                //    if (kuntilanakCollider != null)
+                //        kuntilanakCollider.enabled = true;
 
-                    Debug.Log("Entity is enabled.");
-                }
+                //    Debug.Log("Entity is enabled.");
+                //}
                 break;
 
 
@@ -141,7 +141,5 @@ public class GameEventManager : MonoBehaviour
 
         if (doorObject != null)
             doorObject.SetActive(true);
-
-        //Debug.Log("Toy returned to baby. Door restored. Escape enabled.");
     }
 }

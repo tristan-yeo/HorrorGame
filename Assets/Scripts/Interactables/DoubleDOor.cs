@@ -15,6 +15,10 @@ public class DoubleDoor : MonoBehaviour
     [Header("Door Collision Control")]
     [SerializeField] private Collider doorCollider;
 
+    [Header("Fade out Exit Sequence.")]
+    [SerializeField] private SceneController sceneController;
+    [SerializeField] private string escapeSceneName = "Escaped";
+
     public GameEventManager eventManager;
 
     private void OnTriggerEnter(Collider other)
@@ -22,6 +26,14 @@ public class DoubleDoor : MonoBehaviour
         if (isLocked) return;
         if (other.CompareTag("Player"))
         {
+            if (isEntranceDoor && eventManager != null &&
+            eventManager.currentState == GameEventManager.GameState.ToyReturned)
+            {
+                Debug.Log("Trigger fade out.");
+                sceneController?.LoadScene(escapeSceneName);
+                return; // prevent re-opening logic
+            }
+
             door.Play("DoorOpen", 0, 0.0f);
             PlayDoorSound();
             // player entering hosp
@@ -47,6 +59,20 @@ public class DoubleDoor : MonoBehaviour
                 Debug.Log("Entrance door locked behind player.");
                 if (doorCollider != null)
                     doorCollider.isTrigger = false;
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (isEntranceDoor && isLocked && eventManager != null &&
+            eventManager.currentState == GameEventManager.GameState.ToyReturned)
+        {
+            isLocked = false; // Optional: allow it to re-open freely now
+            if (doorCollider != null)
+            {
+                doorCollider.isTrigger = true;
+                Debug.Log("Entrance door unlocked after toy return.");
             }
         }
     }

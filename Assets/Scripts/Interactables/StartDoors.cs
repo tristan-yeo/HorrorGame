@@ -13,7 +13,11 @@ public class StartDoors : MonoBehaviour
     public bool lockAfterEnter = false;
     private bool isLocked = false;
     private bool isOpen = false;
-    
+
+    [Header("Fade out Exit Sequence")]
+    [SerializeField] private SceneController sceneController;
+    [SerializeField] private string escapeSceneName = "Escaped";
+
     // Flag to track if audio sequence has started
     private bool audioSequenceStarted = false;
 
@@ -40,6 +44,13 @@ public class StartDoors : MonoBehaviour
                 OpenDoor();
                 audioSequenceStarted = false; // Reset the flag after opening
             }
+        }
+        // Auto-unlock door if ToyReturned
+        if (isEntranceDoor && isLocked && eventManager != null &&
+            eventManager.currentState == GameEventManager.GameState.ToyReturned)
+        {
+            isLocked = false;
+            Debug.Log("Door unlocked after ToyReturned.");
         }
     }
 
@@ -105,4 +116,16 @@ public class StartDoors : MonoBehaviour
         if (doorAudioSource != null && doorCloseSound != null)
             doorAudioSource.PlayOneShot(doorCloseSound);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!isEntranceDoor || isLocked) return;
+
+        if (other.CompareTag("Player") && eventManager != null &&
+            eventManager.currentState == GameEventManager.GameState.ToyReturned)
+        {
+            Debug.Log("Player reached door after ToyReturned — fade out triggered.");
+            sceneController?.LoadScene(escapeSceneName);
+        }
+    }
+
 }

@@ -67995,6 +67995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 663636199}
+  - component: {fileID: 663636200}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -68024,6 +68025,27 @@ RectTransform:
   m_AnchoredPosition: {x: 7.074524, y: -22.362411}
   m_SizeDelta: {x: 1807.9, y: 961.72485}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &663636200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663636198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f869e9f5e93134ac78ac9063cf3530c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  postProcessingVolume: {fileID: 426380303}
+  cameraController: {fileID: 1451174817}
+  pauseInstructionText: {fileID: 1899579701}
+  objective: {fileID: 1318932795}
+  objectiveTitle: {fileID: 863018205}
+  pausedVignetteIntensity: 0.8
+  normalVignetteIntensity: 0.2
+  pausedBloomIntensity: 10.5
+  normalBloomIntensity: 1.66
 --- !u!4 &663664311 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 490584, guid: b0f7abaadca23ea4d910efe028624076, type: 3}

@@ -38,11 +38,21 @@ public class GlassFloor : MonoBehaviour
         {
             audioSource.clip = glassSound;
             audioSource.volume = volume;
-            audioSource.Play(); // TRISTAN TODO
+            audioSource.Play();
+            GenerateSound();// TRISTAN TODO
         }
         else
         {
             Debug.LogWarning("Glass sound not assigned to " + gameObject.name);
+        }
+    }
+
+    void GenerateSound()
+    {
+        EnemyAI enemy = FindObjectOfType<EnemyAI>();
+        if (enemy != null)
+        {
+            enemy.HearSound(transform.position);
         }
     }
 }

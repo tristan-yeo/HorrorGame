@@ -1,5 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Add this for TextMeshPro
+using System.Collections;
 
 public class GameEventManager : MonoBehaviour
 {
@@ -20,6 +23,14 @@ public class GameEventManager : MonoBehaviour
     public GameObject doorObject;
     public GameObject player;
     private BoxCollider kuntilanakCollider;
+    
+    [Header("Audio References")]
+    [SerializeField] private AudioSource whatTheHell;
+    [SerializeField] private AudioSource shutThatBabyUp;
+    
+    [Header("Door Control")]
+    [SerializeField] private StartDoors entranceDoor;
+    [SerializeField] private float doorTriggerDelay = 1f;
 
     [Header("UI References")]
     public TMP_Text objectiveText;
@@ -50,6 +61,19 @@ public class GameEventManager : MonoBehaviour
 
         // Set initial objective text
         UpdateObjectiveText();
+        
+        // Start the door trigger sequence with a delay
+        if (entranceDoor != null)
+        {
+            StartCoroutine(TriggerDoorAfterDelay());
+        }
+    }
+    
+    private IEnumerator TriggerDoorAfterDelay()
+    {
+        yield return new WaitForSeconds(doorTriggerDelay);
+        entranceDoor.TriggerDoorSequence();
+        Debug.Log("Door sequence triggered after " + doorTriggerDelay + " seconds");
     }
 
     void Update()
@@ -81,6 +105,7 @@ public class GameEventManager : MonoBehaviour
 
                     Debug.Log("Entity is enabled.");
                 }
+                GenerateSound();
                 break;
 
 
@@ -128,6 +153,50 @@ public class GameEventManager : MonoBehaviour
 
         if (doorObject != null)
             doorObject.SetActive(false);
+            
+        // Handle crying baby audio sources
+        if (cryingBaby != null)
+        {
+            AudioSource[] audioSources = cryingBaby.GetComponents<AudioSource>();
+            if (audioSources.Length >= 2)
+            {
+                // Disable the first audio source
+                audioSources[0].Stop();
+                audioSources[0].enabled = false;
+                
+                // Start playing the second audio source
+                audioSources[1].enabled = true;
+                audioSources[1].Play();
+                
+                Debug.Log("Changed baby crying audio");
+            }
+            else
+            {
+                Debug.LogWarning("Crying baby doesn't have enough audio sources.");
+            }
+        }
+        
+        // Play audio sources with delays
+        StartCoroutine(PlayDelayedAudio());
+    }
+    
+    private IEnumerator PlayDelayedAudio()
+    {
+        // Wait 3 seconds before playing whatTheHell
+        yield return new WaitForSeconds(3f);
+        if (whatTheHell != null)
+        {
+            whatTheHell.Play();
+            Debug.Log("Playing 'What the hell' audio");
+        }
+        
+        // Wait another 3 seconds before playing shutThatBabyUp
+        yield return new WaitForSeconds(3f);
+        if (shutThatBabyUp != null)
+        {
+            shutThatBabyUp.Play();
+            Debug.Log("Playing 'Shut that baby up' audio");
+        }
     }
 
     public void OnToyReturned()
@@ -141,7 +210,34 @@ public class GameEventManager : MonoBehaviour
 
         if (doorObject != null)
             doorObject.SetActive(true);
+            
+        // Disable all audio sources on the crying baby
+        if (cryingBaby != null)
+        {
+            AudioSource[] audioSources = cryingBaby.GetComponents<AudioSource>();
+            foreach (AudioSource source in audioSources)
+            {
+                source.Stop();
+                source.enabled = false;
+            }
+            Debug.Log("All baby crying audio disabled");
+        }
 
         //Debug.Log("Toy returned to baby. Door restored. Escape enabled.");
+    }
+
+    void GenerateSound()
+    {
+        EnemyAI enemy = FindObjectOfType<EnemyAI>();
+        if (enemy != null && player != null)
+        {
+            Vector3 soundPosition = player.transform.position;
+            enemy.HearSound(soundPosition);
+            Debug.Log("Enemy has heard sound at player location: " + soundPosition);
+        }
+        else
+        {
+            Debug.LogWarning("Enemy or player reference missing.");
+        }
     }
 }

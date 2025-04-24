@@ -34,6 +34,7 @@ public class GameEventManager : MonoBehaviour
 
     [Header("UI References")]
     public TMP_Text objectiveText;
+    public TMP_Text objectiveTitleText; // New reference to the objective title
 
     [TextArea] public string spawnObjective = "Press 'C' to use your paranormal camera";
     [TextArea] public string exploreObjective = "Take pictures of some paranormal content";
@@ -144,6 +145,13 @@ public class GameEventManager : MonoBehaviour
     private void UpdateObjectiveText()
     {
         if (objectiveText == null) return;
+
+        // Handle objective title visibility based on state
+        if (objectiveTitleText != null)
+        {
+            // Hide in Spawn state, show in all other states
+            objectiveTitleText.gameObject.SetActive(currentState != GameState.Spawn);
+        }
 
         switch (currentState)
         {

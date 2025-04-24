@@ -9,11 +9,12 @@ public class pauseButton : MonoBehaviour
     [SerializeField] private Volume postProcessingVolume;
     [SerializeField] private MonoBehaviour cameraController;
     [SerializeField] private TMP_Text pauseInstructionText;
+    [SerializeField] private GameObject audioSourcesContainer; // Reference to GameObject containing audio sources
+    [SerializeField] private StartDoors startDoors; // Reference to StartDoors script
 
     //to hide
     [SerializeField] private TMP_Text objective;
     [SerializeField] private TMP_Text objectiveTitle;
-
 
     // Visual effect parameters
     [SerializeField] private float pausedVignetteIntensity = 0.8f;
@@ -25,6 +26,8 @@ public class pauseButton : MonoBehaviour
     private Vignette vignette;
     private Bloom bloom;
     private Button pause;
+    private AudioSource[] audioSources; // Array to store audio sources
+    private bool wasAudioSequenceStarted = false; // To store the original state of audioSequenceStarted
 
     void Start()
     {
@@ -34,6 +37,12 @@ public class pauseButton : MonoBehaviour
         // Get references to the post-processing effects
         postProcessingVolume.profile.TryGet(out vignette);
         postProcessingVolume.profile.TryGet(out bloom);
+
+        // Get all audio sources from the container
+        if (audioSourcesContainer != null)
+        {
+            audioSources = audioSourcesContainer.GetComponentsInChildren<AudioSource>();
+        }
 
         // Set initial values
         if (vignette != null)
@@ -46,6 +55,38 @@ public class pauseButton : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
+
+        // Handle StartDoors audioSequenceStarted flag - now directly accessing the public variable
+        if (startDoors != null)
+        {
+            if (isPaused)
+            {
+                // Store the current state and set to false when pausing
+                wasAudioSequenceStarted = startDoors.audioSequenceStarted;
+                startDoors.audioSequenceStarted = false;
+            }
+            else
+            {
+                // Restore the original state when unpausing
+                startDoors.audioSequenceStarted = wasAudioSequenceStarted;
+            }
+        }
+
+        // Handle audio sources - pause or unpause
+        if (audioSources != null && audioSources.Length > 0)
+        {
+            foreach (AudioSource audioSource in audioSources)
+            {
+                if (isPaused)
+                {
+                    audioSource.Pause();
+                }
+                else
+                {
+                    audioSource.UnPause();
+                }
+            }
+        }
 
         // Pause/unpause game time
         Time.timeScale = isPaused ? 0f : 1f;
@@ -68,7 +109,7 @@ public class pauseButton : MonoBehaviour
 
         if (bloom != null)
             bloom.intensity.value = isPaused ? pausedBloomIntensity : normalBloomIntensity;
-
+        
     }
 
     void Update()

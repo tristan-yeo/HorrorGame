@@ -18,8 +18,8 @@ public class StartDoors : MonoBehaviour
     [SerializeField] private SceneController sceneController;
     [SerializeField] private string escapeSceneName = "Escaped";
 
-    // Flag to track if audio sequence has started
-    private bool audioSequenceStarted = false;
+    // Flag to track if audio sequence has started - now public
+    public bool audioSequenceStarted = false;
 
     public GameEventManager eventManager;
 
@@ -123,7 +123,7 @@ public class StartDoors : MonoBehaviour
         if (other.CompareTag("Player") && eventManager != null &&
             eventManager.currentState == GameEventManager.GameState.ToyReturned)
         {
-            Debug.Log("Player reached door after ToyReturned — fade out triggered.");
+            Debug.Log("Player reached door after ToyReturned ï¿½ fade out triggered.");
             sceneController?.LoadScene(escapeSceneName);
         }
     }

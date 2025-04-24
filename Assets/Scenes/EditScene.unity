@@ -54241,6 +54241,7 @@ MonoBehaviour:
   entranceDoor: {fileID: 9096226711159443348}
   doorTriggerDelay: 1
   objectiveText: {fileID: 1318932795}
+  objectiveTitleText: {fileID: 863018205}
   spawnObjective: Press 'C' to use your paranormal camera
   exploreObjective: Take pictures of some paranormal content
   findBabyObjective: Find the source of the crying
@@ -68307,6 +68308,8 @@ MonoBehaviour:
   postProcessingVolume: {fileID: 426380303}
   cameraController: {fileID: 755757085}
   pauseInstructionText: {fileID: 1899579701}
+  audioSourcesContainer: {fileID: 2072462558}
+  startDoors: {fileID: 9096226711159443348}
   objective: {fileID: 1318932795}
   objectiveTitle: {fileID: 863018205}
   pausedVignetteIntensity: 0.8
@@ -225819,6 +225822,7 @@ MonoBehaviour:
   lockAfterEnter: 1
   sceneController: {fileID: 2051553858}
   escapeSceneName: Escaped
+  audioSequenceStarted: 0
   eventManager: {fileID: 523561158}
 --- !u!1 &9156844795371615693
 GameObject:
